@@ -1,35 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import { useState } from 'react';
+
+import { useEffect, useState } from 'react';
+import User from './pages/user';
+import Chat from './pages/chat';
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  var [location, setlocation] = useState(<User></User>);
+  useEffect(() => {
+    console.log(location);
+  }, [location]);
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <header>
+        <p onClick={() => setlocation((location = <User></User>))}>user</p>
+        <p onClick={() => setlocation((location = <Chat></Chat>))}>chat</p>
+      </header>
+      <main>{location}</main>
+      <footer>rf@@ 2024 ALL RIGHTS RESERVED</footer>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
