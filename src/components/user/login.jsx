@@ -1,26 +1,14 @@
-import axios from 'axios';
+import api from '../../api/index';
 import { useState } from 'react';
 
 function Login() {
   const [name, setname] = useState('');
   const [pwd, setpwd] = useState('');
-  function login() {
-    axios({
-      method: 'post',
-      url: 'https://1stbbs.azurewebsites.net/api/User/Login',
-      data: {
-        "Name": name,
-        "Pwd": pwd,
-      },
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      withCredentials: true
-    }).then((res) => {
-      console.log(res.data);
-    });
+  function handlelogin() {
+    const result = api.login(name, pwd);
+    console.log(result);
   }
+
   return (
     <>
       <div>
@@ -38,7 +26,7 @@ function Login() {
           onChange={(e) => setpwd(e.target.value)}
         />
         <p></p>
-        <button id="submitLoginBtn" value={name} onClick={login}>
+        <button id="submitLoginBtn" value={name} onClick={handlelogin}>
           login
         </button>
       </div>
