@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const url = {
-  // baseurl:'https://1stbbs.azurewebsites.net'
-  baseurl: 'https://localhost:7064',
+  baseurl:'https://1stbbs.azurewebsites.net'
+  // baseurl: 'https://localhost:7064',
 };
 
 const api = {
@@ -34,6 +34,18 @@ const api = {
     });
     return res.data;
   },
+  async getJoinedChatroom(){
+    const res = await axios({
+      method: 'post',
+      url: `${url.baseurl}/api/GetJoinedChatRoom`,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    });
+    return res.data;
+  }
   // async getpost() {
   //   const res = await axios({
   //     method: 'post',
