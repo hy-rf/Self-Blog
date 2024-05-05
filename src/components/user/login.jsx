@@ -4,9 +4,12 @@ import { useState } from 'react';
 function Login() {
   const [name, setname] = useState('');
   const [pwd, setpwd] = useState('');
-  function handlelogin() {
-    const result = api.login(name, pwd);
-    console.log(result);
+  const [loggingin, setloggingin] = useState(false);
+  async function handlelogin() {
+    setloggingin(true);
+    const result = await api.login(name, pwd);
+    setloggingin(false);
+    document.cookie = `Token=${result.payload}`
   }
 
   return (
@@ -25,7 +28,7 @@ function Login() {
           type="password"
           onChange={(e) => setpwd(e.target.value)}
         />
-        <p></p>
+        <p>{loggingin ? <span>logging in</span> : ''}</p>
         <button id="submitLoginBtn" value={name} onClick={handlelogin}>
           login
         </button>
