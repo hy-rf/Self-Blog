@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const url = {
-  baseurl:'https://1stbbs.azurewebsites.net'
+  baseurl: 'https://1stbbs.azurewebsites.net',
   // baseurl: 'https://localhost:7064',
 };
 
@@ -34,7 +34,7 @@ const api = {
     });
     return res.data;
   },
-  async getJoinedChatroom(){
+  async getJoinedChatroom() {
     const res = await axios({
       method: 'post',
       url: `${url.baseurl}/api/GetJoinedChatRoom`,
@@ -45,7 +45,19 @@ const api = {
       withCredentials: true,
     });
     return res.data;
-  }
+  },
+  async getChatroomMember(ChatRoomId) {
+    const res = await axios({
+      method: 'get',
+      url: `${url.baseurl}/api/ChatRoomMember/${ChatRoomId}`,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    });
+    return res.data;
+  },
   // async getpost() {
   //   const res = await axios({
   //     method: 'post',

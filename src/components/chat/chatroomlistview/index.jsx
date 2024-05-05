@@ -1,16 +1,15 @@
 import api from '@/api';
 import { useEffect, useState } from 'react';
-async function get() {
-  var res = await api.getJoinedChatroom();
-  return res.payload;
-}
+import ChatroomPreview from './chatroompreview';
+
 function Roomlist() {
   const [roomlist, setroomlist] = useState([]);
   useEffect(() => {
     (async () => {
-      var ret = await get();
-      setroomlist(ret);
+      var ret = await api.getJoinedChatroom();
+      setroomlist(ret.payload);
     })();
+    (async () => {})();
   }, []);
 
   return (
@@ -20,6 +19,7 @@ function Roomlist() {
           return (
             <li key={ele.id}>
               <p>{ele.name}</p>
+              <ChatroomPreview chatroomid={ele.id}></ChatroomPreview>
             </li>
           );
         })}

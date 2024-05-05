@@ -1,4 +1,4 @@
-import Roomlist from "@/components/chat/roomlist";
+import Roomlist from "@/components/chat/chatroomlistview";
 
 
 function isLogin() {
