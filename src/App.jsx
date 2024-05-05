@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import User from './pages/user';
 import Chat from './pages/chat';
+import Header from './components/header';
 
 function App() {
   var [location, setlocation] = useState(<User></User>);
@@ -12,10 +13,18 @@ function App() {
   return (
     <>
       <header>
-        <p onClick={() => setlocation((location = <User></User>))}>user</p>
-        <p onClick={() => setlocation((location = <Chat></Chat>))}>chat</p>
+        <Header setlocation={setlocation}></Header>
       </header>
-      <main>{location}</main>
+      {location === 'user' && (
+        <main>
+          <User></User>
+        </main>
+      )}
+      {location === 'chat' && (
+        <main>
+          <Chat></Chat>
+        </main>
+      )}
       <footer>rf@@ 2024 ALL RIGHTS RESERVED</footer>
     </>
   );
