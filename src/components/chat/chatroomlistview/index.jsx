@@ -1,6 +1,7 @@
 import api from '@/api';
 import { useEffect, useState } from 'react';
 import ChatroomPreview from './chatroompreview';
+import Proptypes from 'prop-types';
 
 function Roomlist(props) {
   const [roomlist, setroomlist] = useState([]);
@@ -8,16 +9,19 @@ function Roomlist(props) {
     (async () => {
       var ret = await api.getJoinedChatroom();
       setroomlist(ret.payload);
+      document.querySelector('.hide').classList.add('show');
     })();
-    (async () => {})();
   }, []);
 
   return (
     <>
-      <ul>
+      <ul className="hide">
         {roomlist.map((ele) => {
           return (
-            <li onClick={()=>props.setchatlocation(['messagelist',ele.id])} key={ele.id}>
+            <li
+              onClick={() => props.setchatlocation(['messagelist', ele.id])}
+              key={ele.id}
+            >
               <p>{ele.name}</p>
               <ChatroomPreview chatroomid={ele.id}></ChatroomPreview>
             </li>
@@ -27,4 +31,8 @@ function Roomlist(props) {
     </>
   );
 }
+Roomlist.propTypes = {
+  setchatlocation: Proptypes.func,
+  id: Proptypes.number,
+};
 export default Roomlist;

@@ -2,6 +2,7 @@ import MessageList from '@/components/chat/chatmessageview';
 import Roomlist from '@/components/chat/chatroomlistview';
 import ChatRoomMemberList from '@/components/chat/chatroommemberlistview';
 import { useState } from 'react';
+import './chat.css';
 
 function isLogin() {
   return new RegExp('Token*').test(document.cookie);
@@ -12,7 +13,7 @@ function Chat() {
   if (isLogin) {
     return (
       <>
-        <div>
+        <div className="chatpage">
           {chatlocation[0] === 'roomlist' && (
             <Roomlist setchatlocation={setchatlocation}></Roomlist>
           )}

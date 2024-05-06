@@ -1,3 +1,4 @@
+import Proptypes from 'prop-types';
 function MessageList(props) {
   return (
     <>
@@ -19,5 +20,8 @@ function MessageList(props) {
     </>
   );
 }
-
+MessageList.propTypes = {
+  setchatlocation: Proptypes.func,
+  id: Proptypes.number,
+};
 export default MessageList;
