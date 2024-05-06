@@ -21,6 +21,7 @@ function Roomlist(props) {
             <div
               onClick={() => props.setchatlocation(['messagelist', ele.id])}
               key={ele.id}
+              style={{ display: 'flex', height: '4rem' }}
             >
               <p>{ele.name}</p>
               <ChatroomPreview chatroomid={ele.id}></ChatroomPreview>
