@@ -1,8 +1,10 @@
-.hide{
-    opacity: 0;
-    transition: 0.3s;
+.hide {
+  opacity: 0;
+  transition: 0.3s;
+  left: 0;
 }
-.show{
-    opacity: 1;
-    transition: 0.3s;
+.show {
+  opacity: 1;
+  transition: 0.3s;
+  left: 1rem;
 }

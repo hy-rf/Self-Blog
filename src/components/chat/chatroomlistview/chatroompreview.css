@@ -1,17 +1,17 @@
-#chatRoomMemberAvatars{
-    display: flex;
-    &>li{
-        position: relative;
-    }
-    &>li>img{
-        position: relative;
-        border-radius: 99%;
-        box-shadow: 1px 1px 1px grey;
-    }
-    & li:first-child{
-        left: 0;
-    }
-    & li:not(:first-child){
-        left: -1%;
-    }
+#chatRoomMemberAvatars {
+  display: flex;
+  & > div {
+    position: relative;
+  }
+  & > div > img {
+    position: relative;
+    border-radius: 99%;
+    box-shadow: 1px 1px 1px grey;
+  }
+  & div:first-child {
+    left: 0;
+  }
+  & div:not(:first-child) {
+    left: -1%;
+  }
 }

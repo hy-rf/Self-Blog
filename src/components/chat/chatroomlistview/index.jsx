@@ -15,19 +15,19 @@ function Roomlist(props) {
 
   return (
     <>
-      <ul className="hide">
+      <div className="hide">
         {roomlist.map((ele) => {
           return (
-            <li
+            <div
               onClick={() => props.setchatlocation(['messagelist', ele.id])}
               key={ele.id}
             >
               <p>{ele.name}</p>
               <ChatroomPreview chatroomid={ele.id}></ChatroomPreview>
-            </li>
+            </div>
           );
         })}
-      </ul>
+      </div>
     </>
   );
 }

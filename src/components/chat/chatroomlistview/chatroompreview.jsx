@@ -14,10 +14,10 @@ function ChatroomPreview({ chatroomid }) {
   }, []);
   return (
     <>
-      <ul id="chatRoomMemberAvatars">
+      <div id="chatRoomMemberAvatars">
         {preview.map((ele, index) => {
           return (
-            <li
+            <div
               key={index}
               style={{
                 left: -12 * index,
@@ -29,10 +29,10 @@ function ChatroomPreview({ chatroomid }) {
                 width={25}
                 height={25}
               ></img>
-            </li>
+            </div>
           );
         })}
-      </ul>
+      </div>
     </>
   );
 }
