@@ -7,14 +7,21 @@ function ChatroomPreview({ chatroomid }) {
   const [preview, setpreview] = useState([]);
   useEffect(() => {
     (async () => {
-      api.getChatroomMember(chatroomid).then((ret) => {
-        setpreview(ret.payload);
-      });
+      api
+        .getChatroomMember(chatroomid)
+        .then((ret) => {
+          setpreview(ret.payload);
+        })
+        .then(() => {
+          document
+            .querySelectorAll('.hide')
+            .forEach((ele) => ele.classList.add('show'));
+        });
     })();
   }, []);
   return (
     <>
-      <div id="chatRoomMemberAvatars">
+      <div className="hide" id="chatRoomMemberAvatars">
         {preview.map((ele, index) => {
           return (
             <div
