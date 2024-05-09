@@ -22,6 +22,7 @@ function App() {
         {location === 'chat' && <Chat></Chat>}
         {location === 'post' && <Post></Post>}
       </main>
+      <div id="ads">This is Ads</div>
     </>
   );
 }
