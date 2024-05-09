@@ -10,3 +10,9 @@ body {
   height: 100%;
   overflow: hidden;
 }
+.root {
+  display: grid;
+  grid-template-areas: 'header header' 'navigation main';
+  grid-template-rows: 1fr 4fr;
+  grid-template-columns: 1fr 2fr;
+}
