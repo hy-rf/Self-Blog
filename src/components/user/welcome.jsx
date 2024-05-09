@@ -9,10 +9,10 @@ function Welcome() {
     <>
       <div id="welcomeWrapper">
         <div id="toggleBtns">
-          <button id="loginBtn" onClick={()=>setpanel('login')}>
+          <button id="loginBtn" onClick={() => setpanel('login')}>
             Login
           </button>
-          <button id="signupBtn" onClick={()=>setpanel('signup')}>
+          <button id="signupBtn" onClick={() => setpanel('signup')}>
             Singup
           </button>
         </div>

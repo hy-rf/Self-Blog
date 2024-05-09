@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import User from './pages/user';
 import Chat from './pages/chat';
+import Post from './pages/post';
 import Header from './components/header';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <main>
         {location === 'user' && <User></User>}
         {location === 'chat' && <Chat></Chat>}
+        {location === 'post' && <Post></Post>}
       </main>
     </>
   );

@@ -12,25 +12,34 @@ function Roomlist(props) {
       document.querySelector('.hide').classList.add('show');
     })();
   }, []);
-
-  return (
-    <>
-      <div className="hide">
-        {roomlist.map((ele) => {
-          return (
-            <div
-              onClick={() => props.setchatlocation(['messagelist', ele.id])}
-              key={ele.id}
-              style={{ display: 'flex', height: '4rem' }}
-            >
-              <p>{ele.name}</p>
-              <ChatroomPreview chatroomid={ele.id}></ChatroomPreview>
-            </div>
-          );
-        })}
-      </div>
-    </>
-  );
+  if (roomlist.length >= 1) {
+    return (
+      <>
+        <div className="hide">
+          {roomlist.map((ele) => {
+            return (
+              <div
+                onClick={() => props.setchatlocation(['messagelist', ele.id])}
+                key={ele.id}
+                style={{ display: 'flex', height: '4rem' }}
+              >
+                <p>{ele.name}</p>
+                <ChatroomPreview chatroomid={ele.id}></ChatroomPreview>
+              </div>
+            );
+          })}
+        </div>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <div className="hide">
+          <p>no room list</p>
+        </div>
+      </>
+    );
+  }
 }
 Roomlist.propTypes = {
   setchatlocation: Proptypes.func,

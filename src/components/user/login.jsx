@@ -30,7 +30,7 @@ function Login() {
           onChange={(e) => setpwd(e.target.value)}
         />
         <p>{loggingin ? <span>logging in</span> : ''}</p>
-        <button id="submitLoginBtn" value={name} onClick={handlelogin}>
+        <button id="submitLoginBtn" value={name} onPress={handlelogin}>
           login
         </button>
       </div>

@@ -1,10 +1,11 @@
-import {Link} from 'react-aria-components';
+import { Link } from 'react-aria-components';
 // eslint-disable-next-line react/prop-types
 function Header({ setlocation }) {
   return (
     <>
-      <Link onClick={() => setlocation('user')}>user</Link>
-      <Link onClick={() => setlocation('chat')}>chat</Link>
+      <Link onPress={() => setlocation('user')}>user</Link>
+      <Link onPress={() => setlocation('chat')}>chat</Link>
+      <Link onPress={() => setlocation('post')}>post</Link>
     </>
   );
 }

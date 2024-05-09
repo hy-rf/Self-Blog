@@ -3,14 +3,14 @@ function MessageList(props) {
   return (
     <>
       <button
-        onClick={() => {
+        onPress={() => {
           props.setchatlocation(['roomlist', null]);
         }}
       >
         back
       </button>
       <button
-        onClick={() => {
+        onPress={() => {
           props.setchatlocation(['chatroommemberlist', props.id]);
         }}
       >
