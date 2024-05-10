@@ -21,14 +21,24 @@ body {
 
 header {
   grid-area: header;
+  background: linear-gradient(
+    rgba(128, 128, 128, 0.4),
+    rgba(128, 128, 128, 0.2)
+  );
+  border-bottom: 1px solid grey;
+  padding: 5px;
 }
 main {
   grid-area: main;
   overflow: auto;
+  padding: 10px;
 }
 nav {
+  padding: 5px;
   grid-area: navigation;
+  border-right: 1px solid grey;
 }
 #ads {
-  background-color: rgba(128, 128, 128, 0.404);
+  padding: 5px;
+  border-left: 1px solid grey;
 }
