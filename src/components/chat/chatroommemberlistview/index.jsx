@@ -4,7 +4,7 @@ function ChatRoomMemberList(props) {
   return (
     <>
       <button
-        onPress={() => {
+        onClick={() => {
           props.setchatlocation(['messagelist', props.id]);
         }}
       >

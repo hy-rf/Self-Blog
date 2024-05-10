@@ -58,6 +58,21 @@ const api = {
     });
     return res.data;
   },
+  async getChatroomMessage(ChatroomId) {
+    const res = await axios({
+      method: 'post',
+      url: `${url.baseurl}/api/GetChatRoomMessages`,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      data: {
+        chatRoomId: ChatroomId.toString(),
+      },
+      withCredentials: true,
+    });
+    return res.data.payload;
+  },
   // async getpost() {
   //   const res = await axios({
   //     method: 'post',
