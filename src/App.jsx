@@ -8,7 +8,7 @@ import Header from './components/header';
 import Navigation from './components/navigation';
 
 function App() {
-  var [location, setlocation] = useState(<User></User>);
+  var [location, setlocation] = useState('post');
   return (
     <>
       <header>

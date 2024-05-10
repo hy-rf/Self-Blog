@@ -1,0 +1,12 @@
+header {
+  display: flex;
+  & div:nth-child(1) {
+    flex-grow: 0.15;
+  }
+  & div:nth-child(2) {
+    flex-grow: 2;
+  }
+  & span:nth-child(3) {
+    flex-grow: 0.3;
+  }
+}
