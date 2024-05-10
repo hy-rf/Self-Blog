@@ -1,0 +1,6 @@
+.message-unit{
+    display: block;
+    &>p.time-created{
+        color: gray;
+    }
+}
