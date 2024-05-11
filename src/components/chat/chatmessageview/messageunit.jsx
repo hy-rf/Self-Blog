@@ -1,22 +1,20 @@
 import Proptypes from 'prop-types';
-import './messageunit.css';
+import styles from './messageunit.module.css';
 function MessageUnit(props) {
   return (
-    <>
-      <div className="message-unit" key={props.id}>
-        <p className="message-sender">{props.username}</p>
-        <p className="message-content">{props.message}</p>
-        <p className="time-created">
-          {
-            new Date(props.created)
-              .toLocaleString('en-US', {
-                timeZoneName: 'short',
-              })
-              .split('GMT')[0]
-          }
-        </p>
-      </div>
-    </>
+    <div className={styles.container} key={props.id}>
+      <p className={styles.sender}>{props.username}</p>
+      <p className={styles.content}>{props.message}</p>
+      <p className={styles.created}>
+        {
+          new Date(props.created)
+            .toLocaleString('en-US', {
+              timeZoneName: 'short',
+            })
+            .split('GMT')[0]
+        }
+      </p>
+    </div>
   );
 }
 MessageUnit.propTypes = {

@@ -39,14 +39,13 @@ function MessageList(props) {
       <div id="messages">
         {messages.map((ele) => {
           return (
-            <>
-              <MessageUnit
-                id={ele.id}
-                username={ele.user.name}
-                created={ele.created}
-                message={ele.message}
-              ></MessageUnit>
-            </>
+            <MessageUnit
+              key={ele.id}
+              id={ele.id}
+              username={ele.user.name}
+              created={ele.created}
+              message={ele.message}
+            ></MessageUnit>
           );
         })}
       </div>
