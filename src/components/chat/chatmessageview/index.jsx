@@ -25,29 +25,40 @@ function MessageList(props) {
   }, []);
   useEffect(() => {
     if (conn) {
-      conn.start().then(() => {
-        conn.on(
-          'ReceiveMessage',
-          function (roomid, userid, user, message, time) {
-            if (roomid == props.id) {
-              setmessages([
-                ...messages,
-                {
-                  id: Math.random(99, 999),
-                  userId: userid,
-                  message: message,
-                  created: time,
-                  chatRoomId: roomid,
-                  user: {
-                    id: userid,
-                    name: user,
+      conn
+        .start({
+          accessTokenFactory: () => {
+            return document.cookie
+              .split('; ')
+              .find((ele) => new RegExp('Token*').test(ele))
+              .split('=')[1];
+          },
+          withCredentials: true,
+        })
+        .then(() => {
+          conn.invoke('Join', props.id.toString());
+          conn.on(
+            'ReceiveMessage',
+            function (roomid, userid, user, message, time) {
+              if (roomid == props.id) {
+                setmessages([
+                  ...messages,
+                  {
+                    id: Math.random(99, 999),
+                    userId: userid,
+                    message: message,
+                    created: time,
+                    chatRoomId: roomid,
+                    user: {
+                      id: userid,
+                      name: user,
+                    },
                   },
-                },
-              ]);
+                ]);
+              }
             }
-          }
-        );
-      });
+          );
+        });
     }
   }, [conn]);
   return (
