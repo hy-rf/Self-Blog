@@ -1,24 +1,55 @@
 import api from '@/api';
 import Proptypes from 'prop-types';
 import { useEffect, useState } from 'react';
-// import signalR, { HubConnectionBuilder } from '@microsoft/signalr';
+import { HubConnectionBuilder } from '@microsoft/signalr';
 import MessageUnit from './messageunit';
-// function handleChat() {
-//   'use strict';
-//   var connection = new signalR.HubConnectionBuilder().withUrl('/chat').build();
-//   connection.on(
-//     'ReceiveMessage',
-//     function (roomid, userid, user, message, time) {}
-//   );
-// }
+
 function MessageList(props) {
+  const [conn, setconn] = useState();
+  function handleChat() {
+    'use strict';
+    var connection = new HubConnectionBuilder()
+      .withUrl('https://1stbbs.azurewebsites.net/chat')
+      .build();
+
+    setconn(connection);
+  }
   const [messages, setmessages] = useState([]);
   useEffect(() => {
     (async () => {
       let ret = await api.getChatroomMessage(props.id);
       setmessages(ret);
-    })().then(() => {});
+    })().then(() => {
+      handleChat();
+    });
   }, []);
+  useEffect(() => {
+    if (conn) {
+      conn.start().then(() => {
+        conn.on(
+          'ReceiveMessage',
+          function (roomid, userid, user, message, time) {
+            if (roomid == props.id) {
+              setmessages([
+                ...messages,
+                {
+                  id: Math.random(99, 999),
+                  userId: userid,
+                  message: message,
+                  created: time,
+                  chatRoomId: roomid,
+                  user: {
+                    id: userid,
+                    name: user,
+                  },
+                },
+              ]);
+            }
+          }
+        );
+      });
+    }
+  }, [conn]);
   return (
     <>
       <button
@@ -40,7 +71,7 @@ function MessageList(props) {
         {messages.map((ele) => {
           return (
             <MessageUnit
-              key={ele.id}
+              key={Math.random(100000, 100000000)}
               id={ele.id}
               username={ele.user.name}
               created={ele.created}
