@@ -5,13 +5,15 @@ import { HubConnectionBuilder } from '@microsoft/signalr';
 import MessageUnit from './messageunit';
 
 function MessageList(props) {
+  /**
+   * @type {[HubConnection, React.Dispatch<HubConnection>]}
+   */
   const [conn, setconn] = useState();
   function handleChat() {
     'use strict';
     var connection = new HubConnectionBuilder()
       .withUrl('https://1stbbs.azurewebsites.net/chat')
       .build();
-
     setconn(connection);
   }
   const [messages, setmessages] = useState([]);
@@ -22,7 +24,7 @@ function MessageList(props) {
     })().then(() => {
       handleChat();
     });
-  }, []);
+  }, [props.id]);
   useEffect(() => {
     if (conn) {
       conn
@@ -60,12 +62,15 @@ function MessageList(props) {
           );
         });
     }
-  }, [conn]);
+  });
   return (
     <>
       <button
         onClick={() => {
           props.setchatlocation(['roomlist', null]);
+          if (conn) {
+            conn.stop();
+          }
         }}
       >
         back
@@ -73,6 +78,9 @@ function MessageList(props) {
       <button
         onClick={() => {
           props.setchatlocation(['chatroommemberlist', props.id]);
+          if (conn) {
+            conn.stop();
+          }
         }}
       >
         members
