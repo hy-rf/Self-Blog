@@ -17,6 +17,7 @@ function MessageList(props) {
     setconn(connection);
   }
   const [messages, setmessages] = useState([]);
+  const [inputmessage, setInputMessage] = useState('');
   useEffect(() => {
     (async () => {
       let ret = await api.getChatroomMessage(props.id);
@@ -43,10 +44,11 @@ function MessageList(props) {
             'ReceiveMessage',
             function (roomid, userid, user, message, time) {
               if (roomid == props.id) {
+                let newid = Math.random(99, 999);
                 setmessages([
                   ...messages,
                   {
-                    id: Math.random(99, 999),
+                    id: newid,
                     userId: userid,
                     message: message,
                     created: time,
@@ -63,13 +65,16 @@ function MessageList(props) {
         });
     }
   });
+  function sendChatMessage() {
+    conn.invoke('SendMessage', props.id.toString(), inputmessage);
+  }
   return (
     <>
       <button
         onClick={() => {
           props.setchatlocation(['roomlist', null]);
           if (conn) {
-            conn.stop();
+            conn.delete();
           }
         }}
       >
@@ -79,7 +84,7 @@ function MessageList(props) {
         onClick={() => {
           props.setchatlocation(['chatroommemberlist', props.id]);
           if (conn) {
-            conn.stop();
+            conn.delete();
           }
         }}
       >
@@ -99,6 +104,10 @@ function MessageList(props) {
           );
         })}
       </div>
+      <input onChange={(e) => setInputMessage(e.target.value)}></input>
+      <button type="submit" onClick={sendChatMessage}>
+        send msg
+      </button>
     </>
   );
 }
