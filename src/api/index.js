@@ -1,11 +1,15 @@
 import axios from 'axios';
 
 const url = {
-  baseurl: 'https://1stbbs.azurewebsites.net',
-  // baseurl: 'https://localhost:7064',
+  baseurl: new RegExp('https://hy-rf.github.io*').test(window.location.href)
+    ? 'https://1stbbs.azurewebsites.net'
+    : 'https://localhost:7064',
 };
 
 const api = {
+  getBaseUrl() {
+    return url.baseurl;
+  },
   async login(name, pwd) {
     const res = await axios({
       method: 'post',

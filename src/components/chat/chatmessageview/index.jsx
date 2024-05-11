@@ -64,7 +64,7 @@ function MessageList(props) {
           );
         });
     }
-  });
+  }, []);
   function sendChatMessage() {
     conn.invoke('SendMessage', props.id.toString(), inputmessage);
   }
