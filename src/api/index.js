@@ -7,13 +7,13 @@ const url = {
 };
 
 const api = {
-  getBaseUrl() {
-    return url.baseurl;
-  },
+  baseurl: new RegExp('https://hy-rf.github.io*').test(window.location.href)
+    ? 'https://1stbbs.azurewebsites.net'
+    : 'https://localhost:7064',
   async login(name, pwd) {
     const res = await axios({
       method: 'post',
-      url: `${url.baseurl}/api/User/Login`,
+      url: `${url.baseurl}/User/Login`,
       data: {
         Name: name,
         Pwd: pwd,
@@ -41,7 +41,7 @@ const api = {
   async getJoinedChatroom() {
     const res = await axios({
       method: 'post',
-      url: `${url.baseurl}/api/GetJoinedChatRoom`,
+      url: `${url.baseurl}/GetJoinedChatRoom`,
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const api = {
   async getChatroomMember(ChatRoomId) {
     const res = await axios({
       method: 'get',
-      url: `${url.baseurl}/api/ChatRoomMember/${ChatRoomId}`,
+      url: `${url.baseurl}/ChatRoomMember/${ChatRoomId}`,
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ const api = {
   async getChatroomMessage(ChatroomId) {
     const res = await axios({
       method: 'post',
-      url: `${url.baseurl}/api/GetChatRoomMessages`,
+      url: `${url.baseurl}/GetChatRoomMessages`,
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -77,18 +77,6 @@ const api = {
     });
     return res.data.payload;
   },
-  // async getpost() {
-  //   const res = await axios({
-  //     method: 'post',
-  //     url: `${url.baseurl}/api/User/Login`,
-  //     headers: {
-  //       'Accept': 'application/json',
-  //       'Content-Type': 'application/json',
-  //     },
-  //     withCredentials: true
-  //   });
-  //   return res.data;
-  // },
 };
 
 export default api;

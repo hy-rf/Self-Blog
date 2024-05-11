@@ -63,6 +63,13 @@ nav {
   grid-area: ads;
   border-left: 1px solid grey;
 }
+#messages {
+  margin-bottom: 1rem;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+}
+
 @media (min-width: 800px) {
   #root {
     grid-template-areas: 'header header header' 'navigation main ads';

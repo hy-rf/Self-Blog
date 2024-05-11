@@ -3,6 +3,7 @@ import Proptypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { HubConnectionBuilder } from '@microsoft/signalr';
 import MessageUnit from './messageunit';
+import './index.module.css';
 
 function MessageList(props) {
   /**
@@ -12,7 +13,7 @@ function MessageList(props) {
   function handleChat() {
     'use strict';
     var connection = new HubConnectionBuilder()
-      .withUrl('https://1stbbs.azurewebsites.net/chat')
+      .withUrl(`${api.baseurl}/chat`)
       .build();
     setconn(connection);
   }
@@ -43,28 +44,29 @@ function MessageList(props) {
           conn.on(
             'ReceiveMessage',
             function (roomid, userid, user, message, time) {
-              if (roomid == props.id) {
-                let newid = Math.random(99, 999);
-                setmessages([
-                  ...messages,
-                  {
-                    id: newid,
-                    userId: userid,
-                    message: message,
-                    created: time,
-                    chatRoomId: roomid,
-                    user: {
-                      id: userid,
-                      name: user,
-                    },
+              let newid = Math.random(99, 999);
+              setmessages([
+                ...messages,
+                {
+                  id: newid,
+                  userId: userid,
+                  message: message,
+                  created: time,
+                  chatRoomId: roomid,
+                  user: {
+                    id: userid,
+                    name: user,
                   },
-                ]);
-              }
+                },
+              ]);
+              document
+                .getElementById('messages')
+                .lastElementChild.lastElementChild.scrollIntoView();
             }
           );
         });
     }
-  }, []);
+  }, [conn]);
   function sendChatMessage() {
     conn.invoke('SendMessage', props.id.toString(), inputmessage);
   }
@@ -92,10 +94,10 @@ function MessageList(props) {
       </button>
       <p>yout are in chat room {props.id}</p>
       <div id="messages">
-        {messages.map((ele) => {
+        {messages.map((ele, index) => {
           return (
             <MessageUnit
-              key={Math.random(100000, 100000000)}
+              key={index}
               id={ele.id}
               username={ele.user.name}
               created={ele.created}
