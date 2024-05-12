@@ -4,70 +4,65 @@ import { useEffect, useState } from 'react';
 import { HubConnectionBuilder } from '@microsoft/signalr';
 import MessageUnit from './messageunit';
 import './index.module.css';
-
+function createHubConnection(roomid) {
+  'use strict';
+  var connection = new HubConnectionBuilder()
+    .withUrl(`${api.baseurl}/chat`)
+    .build();
+  connection
+    .start({
+      accessTokenFactory: () => {
+        return document.cookie
+          .split('; ')
+          .find((ele) => new RegExp('Token*').test(ele))
+          .split('=')[1];
+      },
+      withCredentials: true,
+    })
+    .then(() => {
+      connection.invoke('Join', roomid);
+    });
+  return connection;
+}
 function MessageList(props) {
   /**
    * @type {[HubConnection, React.Dispatch<HubConnection>]}
    */
-  const [conn, setconn] = useState();
-  function handleChat() {
-    'use strict';
-    var connection = new HubConnectionBuilder()
-      .withUrl(`${api.baseurl}/chat`)
-      .build();
-    setconn(connection);
-  }
+  const [conn] = useState(createHubConnection(props.id.toString()));
   const [messages, setmessages] = useState([]);
-  const [inputmessage, setInputMessage] = useState('');
   useEffect(() => {
     (async () => {
       let ret = await api.getChatroomMessage(props.id);
       setmessages(ret);
-    })().then(() => {
-      handleChat();
-    });
-  }, [props.id]);
+    })();
+  }, []);
   useEffect(() => {
-    if (conn) {
-      conn
-        .start({
-          accessTokenFactory: () => {
-            return document.cookie
-              .split('; ')
-              .find((ele) => new RegExp('Token*').test(ele))
-              .split('=')[1];
-          },
-          withCredentials: true,
-        })
-        .then(() => {
-          conn.invoke('Join', props.id.toString());
-          conn.on(
-            'ReceiveMessage',
-            function (roomid, userid, user, message, time) {
-              let newid = Math.random(99, 999);
-              setmessages([
-                ...messages,
-                {
-                  id: newid,
-                  userId: userid,
-                  message: message,
-                  created: time,
-                  chatRoomId: roomid,
-                  user: {
-                    id: userid,
-                    name: user,
-                  },
-                },
-              ]);
-              document
-                .getElementById('messages')
-                .lastElementChild.lastElementChild.scrollIntoView();
-            }
-          );
-        });
+    if (messages.length > 0) {
+      conn.on(
+        'ReceiveMessage',
+        function (id, roomid, userid, user, message, time) {
+          setmessages([
+            ...messages,
+            {
+              id: id,
+              userId: userid,
+              message: message,
+              created: time,
+              chatRoomId: roomid,
+              user: {
+                id: userid,
+                name: user,
+              },
+            },
+          ]);
+          document
+            .getElementById('messages')
+            .lastElementChild.lastElementChild.scrollIntoView();
+        }
+      );
     }
-  }, [conn]);
-  function sendChatMessage() {
+  }, [messages]);
+  function sendChatMessage(inputmessage) {
     conn.invoke('SendMessage', props.id.toString(), inputmessage);
   }
   return (
@@ -94,10 +89,10 @@ function MessageList(props) {
       </button>
       <p>yout are in chat room {props.id}</p>
       <div id="messages">
-        {messages.map((ele, index) => {
+        {messages.map((ele) => {
           return (
             <MessageUnit
-              key={index}
+              key={ele.id}
               id={ele.id}
               username={ele.user.name}
               created={ele.created}
@@ -106,8 +101,11 @@ function MessageList(props) {
           );
         })}
       </div>
-      <input onChange={(e) => setInputMessage(e.target.value)}></input>
-      <button type="submit" onClick={sendChatMessage}>
+      <input></input>
+      <button
+        type="submit"
+        onClick={(e) => sendChatMessage(e.target.previousElementSibling.value)}
+      >
         send msg
       </button>
     </>
