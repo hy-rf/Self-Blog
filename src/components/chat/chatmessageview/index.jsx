@@ -38,28 +38,12 @@ function MessageList(props) {
   }, []);
   useEffect(() => {
     if (messages.length > 0) {
-      conn.on(
-        'ReceiveMessage',
-        function (id, roomid, userid, user, message, time) {
-          setmessages([
-            ...messages,
-            {
-              id: id,
-              userId: userid,
-              message: message,
-              created: time,
-              chatRoomId: roomid,
-              user: {
-                id: userid,
-                name: user,
-              },
-            },
-          ]);
-          document
-            .getElementById('messages')
-            .lastElementChild.lastElementChild.scrollIntoView();
-        }
-      );
+      conn.on('ReceiveMessage', function (newmsg) {
+        setmessages([...messages, newmsg]);
+        document
+          .getElementById('messages')
+          .lastElementChild.lastElementChild.scrollIntoView();
+      });
     }
   }, [messages]);
   function sendChatMessage(inputmessage) {
@@ -94,7 +78,7 @@ function MessageList(props) {
             <MessageUnit
               key={ele.id}
               id={ele.id}
-              username={ele.user.name}
+              username={ele.userName}
               created={ele.created}
               message={ele.message}
             ></MessageUnit>

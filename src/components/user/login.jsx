@@ -13,7 +13,6 @@ function Login() {
     document.cookie = `Token=${result.payload}`;
     document.location.reload();
   }
-
   return (
     <>
       <div>
@@ -33,9 +32,7 @@ function Login() {
           onChange={(e) => setpwd(e.target.value)}
         />
         <p>{loggingin ? <span>logging in</span> : ''}</p>
-        <button id="submitLoginBtn" value={name} onClick={handlelogin}>
-          login
-        </button>
+        <button onClick={handlelogin}>login</button>
       </div>
     </>
   );

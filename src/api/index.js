@@ -26,6 +26,19 @@ const api = {
     });
     return res.data;
   },
+  async register(registerFormInfo) {
+    const res = await axios({
+      method: 'post',
+      url: `${url.baseurl}/User/Signup`,
+      data: registerFormInfo,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    });
+    return res.data;
+  },
   async getuser(id) {
     const res = await axios({
       method: 'get',
