@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Login from './login';
 import Signup from './signup';
 function Welcome() {
-  var [panel, setpanel] = useState('register');
+  var [panel, setpanel] = useState('login');
   return (
     <>
       <div id="welcomeWrapper">

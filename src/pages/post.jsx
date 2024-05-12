@@ -1,16 +1,12 @@
+import api from '@/api';
+import PostUnit from '@/components/post/postunit';
 function Post() {
-  let test = [];
-  var i = 1;
-  while (i <= 100) {
-    test[i] = i;
-    i++;
-  }
+  let test = api.mockPostApi;
   return (
     <>
       {test.map((i) => {
-        return <p key={i}>{i}</p>;
+        return <PostUnit key={i.id} post={i} />;
       })}
-      <p>post</p>
     </>
   );
 }
