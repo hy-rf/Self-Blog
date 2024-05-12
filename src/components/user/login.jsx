@@ -1,4 +1,5 @@
 import api from '@/api/index';
+import { TextField } from '@mui/material';
 import { useState } from 'react';
 
 function Login() {
@@ -16,14 +17,16 @@ function Login() {
   return (
     <>
       <div>
-        <label htmlFor="Name">Name</label>
-        <input
+        <TextField
+          label="Name"
+          variant="outlined"
           id="Name"
           name="Name"
           onChange={(e) => setname(e.target.value)}
         />
-        <label htmlFor="Pwd">Pwd</label>
-        <input
+        <TextField
+          label="Password"
+          variant="outlined"
           id="Pwd"
           name="Pwd"
           type="password"
