@@ -90,6 +90,57 @@ const api = {
     });
     return res.data.payload;
   },
+  mockPostApi: [
+    {
+      id: 1,
+      title: 'title1',
+      contentPreview: 'content1',
+      created: '2021-01-01',
+      modified: '2021-01-02',
+      userId: 1,
+      userName: 'user1',
+      tags: ['tag1', 'tag2'],
+      usersWhoLike: [
+        {
+          id: 1,
+          name: 'user1',
+          avatar: '',
+        },
+        {
+          id: 2,
+          name: 'user2',
+          avatar: '',
+        },
+        {
+          id: 3,
+          name: 'user3',
+          avatar: '',
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: 'title2',
+      contentPreview: 'content2',
+      created: '2021-01-11',
+      modified: '2021-01-12',
+      userId: 2,
+      userName: 'user2',
+      tags: ['tag1', 'tag2', 'tag3'],
+      usersWhoLike: [
+        {
+          id: 1,
+          name: 'user1',
+          avatar: '',
+        },
+        {
+          id: 2,
+          name: 'user2',
+          avatar: '',
+        },
+      ],
+    },
+  ],
 };
 
 export default api;
