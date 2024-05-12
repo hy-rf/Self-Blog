@@ -1,13 +1,22 @@
-function Navigation() {
+import './navigation.css';
+function Navigation({ setIsUserMenuVisible, setlocation }) {
   return (
     <>
       <p
         onClick={() => {
-          document.getElementById('root').classList.add('move-nav');
+          setlocation('post');
+          setIsUserMenuVisible(false);
         }}
       >
-        avatar
+        nav example
       </p>
+      <div
+        id="Avatar"
+        onClick={() => {
+          document.getElementById('root').classList.add('move-nav');
+          setIsUserMenuVisible(true);
+        }}
+      ></div>
     </>
   );
 }

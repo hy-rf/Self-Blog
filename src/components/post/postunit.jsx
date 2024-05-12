@@ -5,11 +5,10 @@ function PostUnit({ post }) {
       <h3>{post.title}</h3>
       <p>{post.contentPreview}</p>
       <p>{post.created}</p>
-      <p>{post.modified}</p>
       <p>{post.userName}</p>
       <p>
         {post.tags.map((ele) => {
-          return ele;
+          return <span key={ele}>#{ele} </span>;
         })}
       </p>
     </div>

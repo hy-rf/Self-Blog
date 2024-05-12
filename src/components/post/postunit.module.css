@@ -2,3 +2,18 @@
   border-bottom: 1px solid #000000;
   padding: 10px;
 }
+.postunit > p:nth-child(2) {
+  background-color: rgba(80, 80, 80, 0.102);
+  margin: 0.2rem 0.5rem 0.2rem 0.5rem;
+  padding: 0.2rem;
+}
+.postunit > p:nth-child(3) {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.5rem;
+  font-size: 0.7em;
+}
+.postunit > p:nth-child(5) {
+  font-size: 0.7em;
+  color: blue;
+}
