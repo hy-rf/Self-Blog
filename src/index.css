@@ -16,11 +16,13 @@ body {
 }
 #root {
   display: grid;
-  grid-template-areas: 'main' 'header';
-  grid-template-rows: 15fr 1fr;
+  grid-template-areas: 'nav' 'main' 'header';
+  grid-template-rows: 1fr 14fr 1fr;
   grid-template-columns: 1fr 0fr;
   width: 100%;
   height: 100%;
+  left: 0;
+  transition: 0.3s;
 }
 
 header {
@@ -52,10 +54,17 @@ main {
   padding: 10px;
 }
 nav {
-  display: none;
+  background: linear-gradient(
+    rgba(128, 128, 128, 0.4),
+    rgba(128, 128, 128, 0.2)
+  );
   padding: 5px;
-  grid-area: navigation;
+  grid-area: nav;
   border-right: 1px solid grey;
+}
+.move-nav {
+  left: -80% !important;
+  transition: 0.3s;
 }
 #ads {
   display: none;
@@ -72,7 +81,7 @@ nav {
 
 @media (min-width: 800px) {
   #root {
-    grid-template-areas: 'header header header' 'navigation main ads';
+    grid-template-areas: 'header header header' 'nav main ads';
     grid-template-rows: 1fr 18fr;
     grid-template-columns: 1fr 6fr 1fr;
   }

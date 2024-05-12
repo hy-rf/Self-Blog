@@ -1,7 +1,13 @@
 function Navigation() {
   return (
     <>
-      <div>navbar</div>
+      <p
+        onClick={() => {
+          document.getElementById('root').classList.add('move-nav');
+        }}
+      >
+        avatar
+      </p>
     </>
   );
 }
