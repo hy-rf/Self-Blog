@@ -2,14 +2,7 @@ import './navigation.css';
 function Navigation({ setIsUserMenuVisible, setlocation }) {
   return (
     <>
-      <p
-        onClick={() => {
-          setlocation('post');
-          setIsUserMenuVisible(false);
-        }}
-      >
-        nav example
-      </p>
+      <div onClick={() => setlocation('post')}>nav example</div>
       <div
         id="Avatar"
         onClick={() => {

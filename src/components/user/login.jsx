@@ -19,17 +19,21 @@ function Login() {
         <TextField
           label="Name"
           variant="outlined"
+          margin="dense"
           id="Name"
           name="Name"
           onChange={(e) => setname(e.target.value)}
+          required
         />
         <TextField
           label="Password"
           variant="outlined"
+          margin="dense"
           id="Pwd"
           name="Pwd"
           type="password"
           onChange={(e) => setpwd(e.target.value)}
+          required
         />
         <p>{loggingin ? <span>logging in</span> : ''}</p>
         <button onClick={handlelogin}>login</button>

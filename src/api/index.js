@@ -141,6 +141,20 @@ const api = {
       ],
     },
   ],
+  async checkDuplicatedName(name) {
+    const res = await axios({
+      method: 'post',
+      url: `${url.baseurl}/User/CheckDuplicatedName`,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      data: {
+        Name: name,
+      },
+    });
+    return res.data;
+  },
 };
 
 export default api;

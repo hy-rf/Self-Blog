@@ -3,9 +3,9 @@
   padding: 10px;
 }
 .postunit > p:nth-child(2) {
-  background-color: rgba(80, 80, 80, 0.102);
-  margin: 0.2rem 0.5rem 0.2rem 0.5rem;
-  padding: 0.2rem;
+  color: rgba(80, 80, 80, 0.8);
+  margin: 0.1rem 0.2rem 0.1rem 0.2rem;
+  padding: 0.1rem;
 }
 .postunit > p:nth-child(3) {
   position: absolute;

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Login from './login';
 import Signup from './signup';
+import './welcome.css';
 function Welcome() {
   var [panel, setpanel] = useState('login');
   return (
