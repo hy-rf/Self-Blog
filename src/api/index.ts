@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { type Post } from '../types/post';
 const url = {
   baseurl: new RegExp('https://hy-rf.github.io*').test(window.location.href)
     ? 'https://1stbbs.azurewebsites.net'

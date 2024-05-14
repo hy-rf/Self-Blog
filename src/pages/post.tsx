@@ -2,13 +2,14 @@ import api from '@/api';
 import PostDetail from '@/components/post/postdetail';
 import PostEditor from '@/components/post/posteditor';
 import PostUnit from '@/components/post/postunit';
+import { type Post } from '@/types/post';
 import isLogin from '@/utility/islogin';
 import { useState } from 'react';
 function Post() {
   const [posts, setPosts] = useState(api.mockPostApi);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [currentOpenedPost, setCurrentOpenedPost] = useState(null);
-  function addPost(post) {
+  function addPost(post: Post) {
     setPosts([...posts, post]);
   }
   return (
