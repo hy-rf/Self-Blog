@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import { type Post } from '../types/post';
 const url = {
   baseurl: new RegExp('https://hy-rf.github.io*').test(window.location.href)
     ? 'https://1stbbs.azurewebsites.net'
@@ -10,7 +10,7 @@ const api = {
   baseurl: new RegExp('https://hy-rf.github.io*').test(window.location.href)
     ? 'https://1stbbs.azurewebsites.net'
     : 'https://localhost:7064',
-  async login(name, pwd) {
+  async login(name: number, pwd: number) {
     const res = await axios({
       method: 'post',
       url: `${url.baseurl}/User/Login`,
@@ -26,7 +26,7 @@ const api = {
     });
     return res.data;
   },
-  async register(registerFormInfo) {
+  async register(registerFormInfo: any) {
     const res = await axios({
       method: 'post',
       url: `${url.baseurl}/User/Signup`,
@@ -52,7 +52,7 @@ const api = {
     });
     return res.data;
   },
-  async getuser(id) {
+  async getuser(id: number) {
     const res = await axios({
       method: 'get',
       url: `${url.baseurl}/User/${id}`,
@@ -78,7 +78,7 @@ const api = {
     });
     return res.data;
   },
-  async getChatroomMember(ChatRoomId) {
+  async getChatroomMember(ChatRoomId: number) {
     const res = await axios({
       method: 'get',
       url: `${url.baseurl}/ChatRoomMember/${ChatRoomId}`,
@@ -90,7 +90,7 @@ const api = {
     });
     return res.data;
   },
-  async getChatroomMessage(ChatroomId) {
+  async getChatroomMessage(ChatroomId: number) {
     const res = await axios({
       method: 'post',
       url: `${url.baseurl}/GetChatRoomMessages`,
@@ -115,23 +115,6 @@ const api = {
       userId: 1,
       userName: 'user1',
       tags: ['tag1', 'tag2'],
-      usersWhoLike: [
-        {
-          id: 1,
-          name: 'user1',
-          avatar: '',
-        },
-        {
-          id: 2,
-          name: 'user2',
-          avatar: '',
-        },
-        {
-          id: 3,
-          name: 'user3',
-          avatar: '',
-        },
-      ],
     },
     {
       id: 2,
@@ -142,21 +125,9 @@ const api = {
       userId: 2,
       userName: 'user2',
       tags: ['tag1', 'tag2', 'tag3'],
-      usersWhoLike: [
-        {
-          id: 1,
-          name: 'user1',
-          avatar: '',
-        },
-        {
-          id: 2,
-          name: 'user2',
-          avatar: '',
-        },
-      ],
     },
   ],
-  async checkDuplicatedName(name) {
+  async checkDuplicatedName(name: string) {
     const res = await axios({
       method: 'post',
       url: `${url.baseurl}/User/CheckDuplicatedName`,
