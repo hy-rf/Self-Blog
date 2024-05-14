@@ -16,8 +16,6 @@ function Welcome() {
           </button>
         </div>
         <div id="togglePanel">
-          {/* <Login handle={handlelogin}></Login>
-          <Signup handle={submitRegister}></Signup> */}
           {panel === 'login' && <Login></Login>}
           {panel === 'signup' && <Signup></Signup>}
         </div>
