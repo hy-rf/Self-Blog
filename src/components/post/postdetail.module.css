@@ -1,0 +1,10 @@
+.container {
+  position: fixed;
+  width: 90%;
+  height: 70%;
+  margin: 15% 5% 15% 5%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: wheat;
+}

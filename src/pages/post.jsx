@@ -8,7 +8,9 @@ function Post() {
   const [posts, setPosts] = useState(api.mockPostApi);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [currentOpenedPost, setCurrentOpenedPost] = useState(null);
-  console.log(isLogin());
+  function addPost(post) {
+    setPosts([...posts, post]);
+  }
   return (
     <>
       {isLogin() && (
@@ -17,7 +19,10 @@ function Post() {
         </button>
       )}
       {isEditorOpen && (
-        <PostEditor setIsPostEditorOpen={setIsEditorOpen}></PostEditor>
+        <PostEditor
+          addPost={addPost}
+          setIsPostEditorOpen={setIsEditorOpen}
+        ></PostEditor>
       )}
       {currentOpenedPost != null && (
         <PostDetail
@@ -32,7 +37,7 @@ function Post() {
             post={ele}
             key={ele.id}
             title={ele.title}
-            contentPreview={ele.contentPreview}
+            content={ele.content}
             created={ele.created}
             userName={ele.userName}
             tags={ele.tags}

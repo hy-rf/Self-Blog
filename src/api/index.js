@@ -109,7 +109,7 @@ const api = {
     {
       id: 1,
       title: 'title1',
-      contentPreview: 'content1',
+      content: 'content1',
       created: '2021-01-01',
       modified: '2021-01-02',
       userId: 1,
@@ -136,7 +136,7 @@ const api = {
     {
       id: 2,
       title: 'title2',
-      contentPreview: 'content2',
+      content: 'content2',
       created: '2021-01-11',
       modified: '2021-01-12',
       userId: 2,

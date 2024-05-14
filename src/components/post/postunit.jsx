@@ -4,7 +4,7 @@ function PostUnit(props) {
   return (
     <div className={style.postunit}>
       <h3 onClick={() => props.openPost(props.post)}>{props.title}</h3>
-      <p>{props.contentPreview}</p>
+      <p>{props.content}</p>
       <p>{props.created}</p>
       <p>{props.userName}</p>
       <p>
@@ -17,7 +17,7 @@ function PostUnit(props) {
 }
 PostUnit.propTypes = {
   title: Proptypes.string,
-  contentPreview: Proptypes.string,
+  content: Proptypes.string,
   created: Proptypes.string,
   userName: Proptypes.string,
   tags: Proptypes.array,

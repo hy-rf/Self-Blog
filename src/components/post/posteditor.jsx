@@ -5,6 +5,7 @@ function PostEditor({
   mode = 'create',
   currentPost = {},
   setIsPostEditorOpen,
+  addPost,
 }) {
   const [post, setPost] = useState(mode === 'create' ? {} : currentPost);
   function handleSubmitPost() {
@@ -37,5 +38,7 @@ function PostEditor({
 PostEditor.propTypes = {
   mode: Proptypes.string,
   currentPost: Proptypes.object,
+  setIsPostEditorOpen: Proptypes.func,
+  addPost: Proptypes.func,
 };
 export default PostEditor;
