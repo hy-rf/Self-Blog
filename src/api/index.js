@@ -39,6 +39,19 @@ const api = {
     });
     return res.data;
   },
+  async getself() {
+    const res = await axios({
+      method: 'get',
+      url: `${url.baseurl}/User`,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `${localStorage.getItem('Token')}`,
+      },
+      withCredentials: true,
+    });
+    return res.data;
+  },
   async getuser(id) {
     const res = await axios({
       method: 'get',
@@ -46,7 +59,7 @@ const api = {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('Token')}`,
+        Authorization: `${localStorage.getItem('Token')}`,
       },
       withCredentials: true,
     });
@@ -59,7 +72,7 @@ const api = {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('Token')}`,
+        Authorization: `${localStorage.getItem('Token')}`,
       },
       withCredentials: true,
     });

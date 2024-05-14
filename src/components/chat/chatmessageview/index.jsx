@@ -7,15 +7,21 @@ import './index.module.css';
 function createHubConnection(roomid) {
   'use strict';
   var connection = new HubConnectionBuilder()
-    .withUrl(`${api.baseurl}/chat`)
+    .withUrl(`${api.baseurl}/chat`, {
+      accessTokenFactory: () => {
+        return localStorage.getItem('Token');
+      },
+    })
     .build();
   connection
-    .start({
-      accessTokenFactory: () => {
-        localStorage.getItem('Token');
-      },
-      withCredentials: true,
-    })
+    .start
+    //   {
+    //   accessTokenFactory: () => {
+    //     return localStorage.getItem('Token');
+    //   },
+    //   withCredentials: true,
+    // }
+    ()
     .then(() => {
       connection.invoke('Join', roomid);
     });
