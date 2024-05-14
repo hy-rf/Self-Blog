@@ -8,23 +8,16 @@ function createHubConnection(roomid) {
   'use strict';
   var connection = new HubConnectionBuilder()
     .withUrl(`${api.baseurl}/chat`, {
-      accessTokenFactory: () => {
-        return localStorage.getItem('Token');
+      headers: {
+        Authorization: `${localStorage.getItem('Token')}`,
+        withCredentials: true,
       },
     })
+    .withAutomaticReconnect()
     .build();
-  connection
-    .start
-    //   {
-    //   accessTokenFactory: () => {
-    //     return localStorage.getItem('Token');
-    //   },
-    //   withCredentials: true,
-    // }
-    ()
-    .then(() => {
-      connection.invoke('Join', roomid);
-    });
+  connection.start().then(() => {
+    connection.invoke('Join', roomid);
+  });
   return connection;
 }
 function MessageList(props) {
