@@ -12,10 +12,7 @@ function createHubConnection(roomid) {
   connection
     .start({
       accessTokenFactory: () => {
-        return document.cookie
-          .split('; ')
-          .find((ele) => new RegExp('Token*').test(ele))
-          .split('=')[1];
+        localStorage.getItem('Token');
       },
       withCredentials: true,
     })
