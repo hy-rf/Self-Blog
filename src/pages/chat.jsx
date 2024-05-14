@@ -3,14 +3,11 @@ import Roomlist from '@/components/chat/chatroomlistview';
 import ChatRoomMemberList from '@/components/chat/chatroommemberlistview';
 import { useState } from 'react';
 import './chat.css';
-
-function isLogin() {
-  return new RegExp('Token*').test(document.cookie);
-}
+import isLogin from '@/utility/islogin';
 
 function Chat() {
   const [chatlocation, setchatlocation] = useState(['roomlist', null]);
-  if (isLogin) {
+  if (isLogin()) {
     return (
       <>
         <div className="chatpage">
@@ -31,6 +28,12 @@ function Chat() {
           )}
         </div>
       </>
+    );
+  } else {
+    return (
+      <div className="chatpage">
+        <p>Please Login</p>
+      </div>
     );
   }
 }

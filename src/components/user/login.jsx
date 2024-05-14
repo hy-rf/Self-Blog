@@ -10,8 +10,9 @@ function Login() {
     setloggingin(true);
     const result = await api.login(name, pwd);
     setloggingin(false);
-    document.cookie = `Token=${result.payload}`;
-    document.location.reload();
+    // document.cookie = `Token=${result.payload}`;
+    localStorage.setItem('Token', result.payload);
+    // document.location.reload();
   }
   return (
     <>

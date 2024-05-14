@@ -1,3 +1,4 @@
+import isLogin from '@/utility/islogin';
 import './usermenu.css';
 function UserMenu({ isVisible }) {
   return (
@@ -9,7 +10,7 @@ function UserMenu({ isVisible }) {
       }}
       className="user-menu"
     >
-      <h1>User Menu</h1>
+      {isLogin ? <h1>User Menu</h1> : <h1>Please Login</h1>}
     </div>
   );
 }

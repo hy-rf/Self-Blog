@@ -1,12 +1,8 @@
 import { useEffect } from 'react';
 import Welcome from '../components/user/welcome';
+import isLogin from '@/utility/islogin';
+import UserInfo from '@/components/user/userinfo';
 
-// function getUserNameCookie() {
-//   return document.cookie.split("; ").find(ele => new RegExp('Token*').test(ele)).split("=")[1];
-// }
-function isLogin() {
-  return new RegExp('Token*').test(document.cookie);
-}
 function User() {
   useEffect(() => {
     setTimeout(() => {
@@ -14,7 +10,15 @@ function User() {
     }, 0);
   }, []);
   return (
-    <div className="hide">{isLogin() ? <p>user</p> : <Welcome></Welcome>}</div>
+    <div className="hide">
+      {isLogin() ? (
+        <UserInfo>
+          <p>testchildren</p>user
+        </UserInfo>
+      ) : (
+        <Welcome></Welcome>
+      )}
+    </div>
   );
 }
 
