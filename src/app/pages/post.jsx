@@ -4,7 +4,7 @@ import PostEditor from '@/app/components/post/posteditor';
 import PostUnit from '@/app/components/post/postunit';
 // import { type Post } from '@/types/post';
 import isLogin from '@/app/utility/islogin';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 function Post() {
   const [posts, setPosts] = useState(api.mockPostApi);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
@@ -12,6 +12,12 @@ function Post() {
   function addPost(post) {
     setPosts([...posts, post]);
   }
+  useEffect(() => {
+    api.getPosts().then((res) => {
+      console.log(res);
+      setPosts(res);
+    });
+  }, []);
   return (
     <>
       {isLogin() && (

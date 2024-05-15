@@ -140,6 +140,17 @@ const api = {
     });
     return res.data;
   },
+  async getPosts() {
+    const res = await axios({
+      method: 'get',
+      url: `${url.baseurl}/post`,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    });
+    return res.data;
+  },
 };
 
 export { api, BASE_URL };
