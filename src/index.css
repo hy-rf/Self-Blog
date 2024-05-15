@@ -92,6 +92,9 @@ nav {
   #ads {
     display: block;
   }
+  nav > svg {
+    display: block;
+  }
   #search-bar {
     display: block;
   }
