@@ -2,19 +2,23 @@ import { useState } from 'react';
 import Login from './login';
 import Signup from './signup';
 import './welcome.css';
+import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 function Welcome() {
   var [panel, setpanel] = useState('login');
   return (
     <>
       <div id="welcomeWrapper">
-        <div id="toggleBtns">
-          <button id="loginBtn" onClick={() => setpanel('login')}>
+        <ToggleButtonGroup id="toggleBtns">
+          <ToggleButton onClick={() => setpanel('login')} aria-label="Platform">
             Login
-          </button>
-          <button id="signupBtn" onClick={() => setpanel('signup')}>
+          </ToggleButton>
+          <ToggleButton
+            onClick={() => setpanel('signup')}
+            aria-label="Platform"
+          >
             Singup
-          </button>
-        </div>
+          </ToggleButton>
+        </ToggleButtonGroup>
         <div id="togglePanel">
           {panel === 'login' && <Login></Login>}
           {panel === 'signup' && <Signup></Signup>}

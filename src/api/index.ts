@@ -4,7 +4,7 @@ const url = {
     ? 'https://1stbbs.azurewebsites.net'
     : 'https://localhost:7064',
 };
-
+const BASE_URL = url.baseurl;
 const api = {
   baseurl: new RegExp('https://hy-rf.github.io*').test(window.location.href)
     ? 'https://1stbbs.azurewebsites.net'
@@ -142,4 +142,4 @@ const api = {
   },
 };
 
-export default api;
+export { api, BASE_URL };

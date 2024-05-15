@@ -1,5 +1,5 @@
-import api from '@/api/index';
-import { TextField } from '@mui/material';
+import { api } from '@/api/index';
+import { Button, TextField } from '@mui/material';
 import { useState } from 'react';
 
 function Login() {
@@ -37,7 +37,9 @@ function Login() {
           required
         />
         <p>{loggingin ? <span>logging in</span> : ''}</p>
-        <button onClick={handlelogin}>login</button>
+        <Button variant="contained" onClick={handlelogin}>
+          login
+        </Button>
       </div>
     </>
   );

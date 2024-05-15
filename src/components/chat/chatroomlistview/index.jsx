@@ -1,4 +1,4 @@
-import api from '@/api';
+import { api } from '@/api';
 import { useEffect, useState } from 'react';
 import ChatroomPreview from './chatroompreview';
 import Proptypes from 'prop-types';
@@ -9,13 +9,12 @@ function Roomlist(props) {
     (async () => {
       var ret = await api.getJoinedChatroom();
       setroomlist(ret.payload);
-      document.querySelector('.hide').classList.add('show');
     })();
   }, []);
   if (roomlist.length >= 1) {
     return (
       <>
-        <div className="hide">
+        <div>
           {roomlist.map((ele) => {
             return (
               <div

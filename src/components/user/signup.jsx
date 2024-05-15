@@ -1,5 +1,5 @@
-import api from '@/api/index';
-import { TextField } from '@mui/material';
+import { api } from '@/api/index';
+import { Button, TextField } from '@mui/material';
 import { useState } from 'react';
 
 function Signup() {
@@ -94,7 +94,9 @@ function Signup() {
           required
         />
         <p></p>
-        <button onClick={submitRegister}>sign up</button>
+        <Button variant="contained" onClick={submitRegister}>
+          sign up
+        </Button>
       </div>
     </>
   );

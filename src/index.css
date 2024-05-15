@@ -8,6 +8,9 @@
   font: inherit;
   vertical-align: baseline;
 }
+/* html {
+  color-scheme: light dark;
+} */
 html,
 body {
   width: 100%;

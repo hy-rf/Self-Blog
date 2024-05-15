@@ -1,4 +1,4 @@
-import api from '@/api';
+import { api } from '@/api';
 import Proptypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { HubConnectionBuilder } from '@microsoft/signalr';

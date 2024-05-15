@@ -1,4 +1,4 @@
-import api from '@/api';
+import { api } from '@/api';
 import PostDetail from '@/components/post/postdetail';
 import PostEditor from '@/components/post/posteditor';
 import PostUnit from '@/components/post/postunit';
