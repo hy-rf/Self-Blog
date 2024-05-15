@@ -18,6 +18,15 @@ function User() {
       {isLogin() ? (
         <UserInfo>
           <p>testchildren</p>user
+          <button
+            onClick={() => {
+              localStorage.removeItem('Token');
+              console.info('log out');
+              window.location.replace('/');
+            }}
+          >
+            logout
+          </button>
         </UserInfo>
       ) : (
         <Welcome></Welcome>

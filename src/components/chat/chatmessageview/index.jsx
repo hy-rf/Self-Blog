@@ -8,9 +8,8 @@ function createHubConnection(roomid) {
   'use strict';
   var connection = new HubConnectionBuilder()
     .withUrl(`${api.baseurl}/chat`, {
-      headers: {
-        Authorization: `${localStorage.getItem('Token')}`,
-        withCredentials: true,
+      accessTokenFactory: () => {
+        return localStorage.getItem('Token');
       },
     })
     .withAutomaticReconnect()
@@ -67,7 +66,7 @@ function MessageList(props) {
       >
         members
       </button>
-      <p>yout are in chat room {props.id}</p>
+      <p>you are in chat room {props.id}</p>
       <div id="messages">
         {messages.map((ele) => {
           return (
