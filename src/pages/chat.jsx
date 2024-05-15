@@ -2,7 +2,6 @@ import MessageList from '@/components/chat/chatmessageview';
 import Roomlist from '@/components/chat/chatroomlistview';
 import ChatRoomMemberList from '@/components/chat/chatroommemberlistview';
 import { useState } from 'react';
-import './chat.css';
 import isLogin from '@/utility/islogin';
 
 function Chat() {

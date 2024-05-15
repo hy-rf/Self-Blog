@@ -34,7 +34,7 @@ function Post() {
       {posts.map((ele) => {
         return (
           <PostUnit
-            openPost={setCurrentOpenedPost}
+            openPost={() => setCurrentOpenedPost(ele)}
             post={ele}
             key={ele.id}
             title={ele.title}
