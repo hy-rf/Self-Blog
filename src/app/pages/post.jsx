@@ -1,9 +1,9 @@
-import { api } from '@/api';
-import PostDetail from '@/components/post/postdetail';
-import PostEditor from '@/components/post/posteditor';
-import PostUnit from '@/components/post/postunit';
+import { api } from '@/app/api';
+import PostDetail from '@/app/components/post/postdetail';
+import PostEditor from '@/app/components/post/posteditor';
+import PostUnit from '@/app/components/post/postunit';
 // import { type Post } from '@/types/post';
-import isLogin from '@/utility/islogin';
+import isLogin from '@/app/utility/islogin';
 import { useState } from 'react';
 function Post() {
   const [posts, setPosts] = useState(api.mockPostApi);

@@ -1,4 +1,4 @@
-import { api } from '@/api';
+import { api } from '@/app/api';
 import { useEffect, useState } from 'react';
 import ChatroomPreview from './chatroompreview';
 import Proptypes from 'prop-types';

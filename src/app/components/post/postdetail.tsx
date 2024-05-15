@@ -1,5 +1,5 @@
 import style from './postdetail.module.css';
-import { type Post } from '@/types/post';
+import { type Post } from '@/app/types/post';
 function PostDetail(post: Post, setCurrentOpenedPost: any) {
   return (
     <div className={style.container}>

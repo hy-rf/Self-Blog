@@ -1,8 +1,8 @@
-import MessageList from '@/components/chat/chatmessageview';
-import Roomlist from '@/components/chat/chatroomlistview';
-import ChatRoomMemberList from '@/components/chat/chatroommemberlistview';
+import MessageList from '@/app/components/chat/chatmessageview';
+import Roomlist from '@/app/components/chat/chatroomlistview';
+import ChatRoomMemberList from '@/app/components/chat/chatroommemberlistview';
 import { useState } from 'react';
-import isLogin from '@/utility/islogin';
+import isLogin from '@/app/utility/islogin';
 
 function Chat() {
   const [chatlocation, setchatlocation] = useState(['roomlist', null]);

@@ -1,4 +1,4 @@
-import { api } from '@/api/index';
+import { api } from '@/app/api/index';
 import { Button, TextField } from '@mui/material';
 import { useState } from 'react';
 

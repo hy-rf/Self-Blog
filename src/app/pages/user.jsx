@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import Welcome from '../components/user/welcome';
-import isLogin from '@/utility/islogin';
-import UserInfo from '@/components/user/userinfo';
-import { api } from '@/api';
+import isLogin from '@/app/utility/islogin';
+import UserInfo from '@/app/components/user/userinfo';
+import { api } from '@/app/api';
 
 function User() {
   useEffect(() => {
