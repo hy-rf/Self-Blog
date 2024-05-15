@@ -1,10 +1,13 @@
+import { Card, Divider } from '@mui/material';
 import './postunit.css';
 import Proptypes from 'prop-types';
 function PostUnit(props: any) {
   return (
-    <div className="postunit">
-      <h3 onClick={() => props.openPost(props.post)}>{props.title}</h3>
+    <Card className="postunit">
+      <h3>{props.title}</h3>
+      <Divider />
       <p>{props.content}</p>
+      <Divider />
       <p>{props.created}</p>
       <p>{props.userName}</p>
       <p>
@@ -12,7 +15,7 @@ function PostUnit(props: any) {
           return <span key={ele}>#{ele} </span>;
         })}
       </p>
-    </div>
+    </Card>
   );
 }
 PostUnit.propTypes = {
