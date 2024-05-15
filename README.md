@@ -1,8 +1,24 @@
-# React + Vite
+### Self-Blog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Self-Blog is front end of my BBS project.
 
-Currently, two official plugins are available:
+## How to run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<details>
+<summary>Install dependencies</summary>
+<code>
+npm i
+</code>
+</details>
+<details>
+<summary>Run dev server</summary>
+<code>
+npm run dev
+</code>
+</details>
+<details>
+<summary>Build project</summary>
+<code>
+npm run build
+</code>
+</details>
