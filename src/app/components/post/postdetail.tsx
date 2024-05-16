@@ -1,11 +1,10 @@
 import style from './postdetail.module.css';
-import { type Post } from '@/app/types/post';
-function PostDetail(post: Post, setCurrentOpenedPost: any) {
+function PostDetail() {
   return (
     <div className={style.container}>
-      <button onClick={() => setCurrentOpenedPost(null)}>close</button>
-      <h1>{post.title}</h1>
-      <p>{post.content}</p>
+      <button>close</button>
+      <h1></h1>
+      <p></p>
     </div>
   );
 }

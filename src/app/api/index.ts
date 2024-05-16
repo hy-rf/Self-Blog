@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { PostListViewModel } from '../types/PostListViewModel';
 const url = {
   baseurl: new RegExp('https://hy-rf.github.io*').test(window.location.href)
     ? 'https://1stbbs.azurewebsites.net'
@@ -140,7 +141,7 @@ const api = {
     });
     return res.data;
   },
-  async getPosts() {
+  async getPosts(): Promise<PostListViewModel[]> {
     const res = await axios({
       method: 'get',
       url: `${url.baseurl}/post`,
@@ -149,7 +150,7 @@ const api = {
         'Content-Type': 'application/json',
       },
     });
-    return res.data;
+    return res.data.payload;
   },
 };
 

@@ -1,31 +1,23 @@
 import { Card, Divider } from '@mui/material';
 import './postunit.css';
-import Proptypes from 'prop-types';
-function PostUnit(props: any) {
+import { type PostListViewModel } from '@/app/types/PostListViewModel';
+import { Tag } from '@/app/types/Tag';
+function PostUnit({ post }: { post: PostListViewModel }) {
   return (
     <Card className="postunit">
-      <h3>{props.title}</h3>
+      <h3>{post.title}</h3>
       <Divider />
-      <p>{props.content}</p>
+      <p>{post.contentPreview}</p>
       <Divider />
-      <p>{props.created}</p>
-      <p>{props.userName}</p>
+      <p>{post.created}</p>
+      <p>{post.userName}</p>
       <p>
-        {props.tags.map((ele: string) => {
-          return <span key={ele}>#{ele} </span>;
+        {post.tags.map((ele: Tag) => {
+          return <span key={ele.id}>#{ele.name} </span>;
         })}
       </p>
     </Card>
   );
 }
-PostUnit.propTypes = {
-  post: Proptypes.object,
-  title: Proptypes.string,
-  content: Proptypes.string,
-  created: Proptypes.string,
-  userName: Proptypes.string,
-  tags: Proptypes.array,
-  openPost: Proptypes.func,
-};
 
 export default PostUnit;
