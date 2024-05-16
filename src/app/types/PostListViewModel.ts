@@ -9,5 +9,5 @@ export interface PostListViewModel {
   userId: number;
   userName: string;
   tags: Tag[];
-  usersWhoLike: UserBriefViewModel[];
+  likeUsers: UserBriefViewModel[];
 }

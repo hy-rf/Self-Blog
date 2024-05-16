@@ -9,7 +9,7 @@ export interface PostDetailViewModel {
   userId: number;
   userName: string;
   tags: Tag[];
-  usersWhoLike: UserBriefViewModel[];
-  likes: number;
-  replies: number;
+  likeUsers: UserBriefViewModel[];
+  numberOfLikes: number;
+  numberOfReplies: number;
 }
