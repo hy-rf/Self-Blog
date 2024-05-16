@@ -6,6 +6,7 @@ function Navigation() {
       <Link to={'/'}>home</Link>
       <Link to={'/user'}>user</Link>
       <Link to={'/post'}>post</Link>
+      <Link to={'/chat'}>chat</Link>
     </>
   );
 }

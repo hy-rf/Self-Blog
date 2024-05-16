@@ -6,14 +6,8 @@ import Chat from './pages/chat';
 import Post from './pages/post';
 import Header from './components/header';
 import Navigation from './components/navigation';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  BrowserRouter,
-} from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
-  var [location, setlocation] = useState('post');
   // function handleClickToCloseUserMenu(e) {
   //   if (e.target.id != 'Avatar') {
   //     document.getElementById('root').classList.remove('move-nav');
@@ -29,16 +23,17 @@ function App() {
     <>
       <BrowserRouter>
         <header>
-          <Header setlocation={setlocation}></Header>
+          <Header></Header>
         </header>
         <nav>
           <Navigation></Navigation>
         </nav>
         <main>
           <Routes>
-            <Route path="/" element={<User />}></Route>
+            <Route path="/" element={<Post />}></Route>
             <Route path="/user" element={<User />}></Route>
             <Route path="/post" element={<Post />}></Route>
+            <Route path="/chat" element={<Chat />}></Route>
           </Routes>
         </main>
         {/* <div>
