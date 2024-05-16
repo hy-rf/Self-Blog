@@ -1,7 +1,7 @@
 import { api } from '@/app/api/index';
 import { Button, TextField } from '@mui/material';
 import { useState } from 'react';
-
+import { redirect } from 'react-router-dom';
 function Signup() {
   const [registerFormInfo, setRegisterFormInfo] = useState({
     Name: '',
@@ -19,6 +19,7 @@ function Signup() {
     let res = await api.checkDuplicatedName(Name);
     if (res.success) {
       setNameProps({ ...nameProps, error: false, helperText: res.message });
+      redirect('/login');
     } else {
       setNameProps({ ...nameProps, error: true, helperText: res.message });
     }

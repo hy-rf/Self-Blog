@@ -1,7 +1,7 @@
 import { api } from '@/app/api/index';
 import { Button, TextField } from '@mui/material';
 import { useState } from 'react';
-
+import { redirect } from 'react-router-dom';
 function Login() {
   const [name, setname] = useState('');
   const [pwd, setpwd] = useState('');
@@ -9,10 +9,15 @@ function Login() {
   async function handlelogin() {
     setloggingin(true);
     const result = await api.login(name, pwd);
-    setloggingin(false);
-    // document.cookie = `Token=${result.payload}`;
-    localStorage.setItem('Token', result.payload);
-    // document.location.reload();
+    if (result.success) {
+      setloggingin(false);
+      // document.cookie = `Token=${result.payload}`;
+      localStorage.setItem('Token', result.payload);
+      redirect('/');
+      // document.location.reload();
+    } else {
+      alert(result.message);
+    }
   }
   return (
     <>
