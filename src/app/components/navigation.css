@@ -1,9 +1,9 @@
-#Avatar {
-  position: absolute;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  right: 8px;
-  top: 5px;
-  background-color: aqua;
+nav {
+  display: flex;
+  flex-direction: row;
+}
+nav > * {
+  width: 20%;
+  display: flex;
+  justify-content: center;
 }
