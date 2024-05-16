@@ -1,15 +1,11 @@
 import './navigation.css';
-function Navigation({ setIsUserMenuVisible, setlocation }) {
+import { Link } from 'react-router-dom';
+function Navigation() {
   return (
     <>
-      <div onClick={() => setlocation('post')}>nav example</div>
-      <div
-        id="Avatar"
-        onClick={() => {
-          document.getElementById('root').classList.add('move-nav');
-          setIsUserMenuVisible(true);
-        }}
-      ></div>
+      <Link to={'/'}>home</Link>
+      <Link to={'/user'}>user</Link>
+      <Link to={'/post'}>post</Link>
     </>
   );
 }

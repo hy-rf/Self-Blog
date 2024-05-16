@@ -19,7 +19,7 @@ body {
 }
 #root {
   display: grid;
-  grid-template-areas: 'nav' 'main' 'header';
+  grid-template-areas: 'header' 'main' 'nav';
   grid-template-rows: 1fr 14fr 1fr;
   grid-template-columns: 1fr 0fr;
   width: 100%;
@@ -83,7 +83,7 @@ nav {
   height: 100%;
 }
 
-@media (min-width: 800px) {
+/* @media (min-width: 800px) {
   #root {
     grid-template-areas: 'header header header' 'nav main ads';
     grid-template-rows: 1fr 18fr;
@@ -117,4 +117,4 @@ nav {
       height: auto;
     }
   }
-}
+} */
