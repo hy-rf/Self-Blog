@@ -2,7 +2,6 @@ import { api } from '@/app/api';
 import { useEffect, useState } from 'react';
 import './chatroompreview.css';
 import Proptypes from 'prop-types';
-// eslint-disable-next-line react/prop-types
 function ChatroomPreview({ chatroomid }) {
   const [preview, setpreview] = useState([]);
   useEffect(() => {
