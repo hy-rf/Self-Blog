@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { PostListViewModel } from '../types/PostListViewModel';
+import { PostDetailViewModel } from '../types/PostDetailViewModel';
 const url = {
   baseurl: new RegExp('https://hy-rf.github.io*').test(window.location.href)
     ? 'https://1stbbs.azurewebsites.net'
@@ -145,6 +146,20 @@ const api = {
     const res = await axios({
       method: 'get',
       url: `${url.baseurl}/post`,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    });
+    return res.data.payload;
+  },
+  async getPostDetail(id: number): Promise<PostDetailViewModel> {
+    const res = await axios({
+      method: 'get',
+      url: `${url.baseurl}/post/detail`,
+      params: {
+        id: id,
+      },
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',

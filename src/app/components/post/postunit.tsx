@@ -2,10 +2,11 @@ import { Card, Divider } from '@mui/material';
 import './postunit.css';
 import { type PostListViewModel } from '@/app/types/PostListViewModel';
 import { Tag } from '@/app/types/Tag';
+import { api } from '@/app/api';
 function PostUnit({ post }: { post: PostListViewModel }) {
   return (
     <Card className="postunit">
-      <h3>{post.title}</h3>
+      <h3 onClick={async () => api.getPostDetail(post.id)}>{post.title}</h3>
       <Divider />
       <p>{post.contentPreview}</p>
       <Divider />

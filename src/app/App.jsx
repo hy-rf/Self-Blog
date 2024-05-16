@@ -1,6 +1,5 @@
 // import { useState } from 'react';
 
-import { useState } from 'react';
 import User from './pages/user';
 import Chat from './pages/chat';
 import Post from './pages/post';
