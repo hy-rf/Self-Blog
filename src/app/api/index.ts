@@ -2,9 +2,13 @@ import axios from 'axios';
 import { PostListViewModel } from '../types/PostListViewModel';
 import { PostDetailViewModel } from '../types/PostDetailViewModel';
 const url = {
-  baseurl: new RegExp('https://hy-rf.github.io*').test(window.location.href)
-    ? 'https://1stbbs.azurewebsites.net'
-    : 'https://localhost:7064',
+  baseurl:
+    new RegExp('https://hy-rf.github.io*').test(window.location.href) ||
+    new RegExp(
+      'https://victorious-cliff-0fe836900.5.azurestaticapps.net*'
+    ).test(window.location.href)
+      ? 'https://1stbbs.azurewebsites.net'
+      : 'https://localhost:7064',
 };
 const BASE_URL = url.baseurl;
 const api = {
