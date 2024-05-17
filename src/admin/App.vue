@@ -17,8 +17,34 @@ import { RouterLink, RouterView } from 'vue-router';
 nav {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  gap: 10px;
   padding: 10px;
   background-color: #f1f1f1;
+  height: 90%;
+}
+
+nav>* {
+  padding: 10px;
+  text-align: center;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+a:hover {
+  background-color: #333;
+  color: #f1f1f1;
+  transition: 0.1s;
+}
+
+a:not(:hover) {
+  background-color: #f1f1f1;
+  color: #333;
+  transition: 0.1s;
 }
 </style>

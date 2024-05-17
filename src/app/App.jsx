@@ -1,5 +1,6 @@
 // import { useState } from 'react';
 
+import Home from './pages/Home';
 import User from './pages/User';
 import Chat from './pages/Chat';
 import Post from './pages/Post';
@@ -19,17 +20,13 @@ function App() {
         </nav>
         <main>
           <Routes>
-            <Route path="/*" element={<Post />}></Route>
+            <Route path="/" element={<Home />}></Route>
             <Route path="/user/*" element={<User />}></Route>
-            <Route path="/post" element={<Post />}></Route>
-            <Route path="/chat/*" element={<Chat />}></Route>
+            <Route path="/post/*" element={<Post />}></Route>
+            <Route path="/chat" element={<Chat />}></Route>
             <Route path="/create/*" element={<Create />}></Route>
           </Routes>
         </main>
-        {/* <div>
-        <UserMenu isVisible={isVisible}></UserMenu>
-      </div>
-      <div id="ads">This is Ads</div> */}
       </BrowserRouter>
     </>
   );
