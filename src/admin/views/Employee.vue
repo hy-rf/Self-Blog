@@ -4,7 +4,7 @@
 
 <template>
     <div>
-        <h1>Profile</h1>
+        <h1>Employee</h1>
     </div>
 </template>
 

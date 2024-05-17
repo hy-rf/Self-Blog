@@ -1,7 +1,6 @@
 import { api } from '@/app/api/index';
 import { Button, TextField } from '@mui/material';
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
 // import { redirect } from 'react-router-dom';
 function Login() {
   const [name, setName] = useState('');

@@ -4,12 +4,21 @@ import { RouterLink, RouterView } from 'vue-router';
 
 <template>
   <nav>
-    <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/profile">Profile</RouterLink>
+    <RouterLink to="/">Dashboard</RouterLink>
+    <RouterLink to="/department">Department</RouterLink>
+    <RouterLink to="/employee">Employee</RouterLink>
   </nav>
   <main>
     <RouterView />
   </main>
 </template>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #f1f1f1;
+}
+</style>
