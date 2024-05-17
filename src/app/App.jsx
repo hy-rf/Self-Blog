@@ -2,7 +2,7 @@
 
 import User from './pages/user';
 import Chat from './pages/chat';
-import Post from './pages/post';
+import Post from './pages/Post';
 import Header from './components/header';
 import Navigation from './components/navigation';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
