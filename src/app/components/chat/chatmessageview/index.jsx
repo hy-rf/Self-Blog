@@ -32,14 +32,16 @@ function MessageList(props) {
     })();
   }, []);
   useEffect(() => {
-    if (messages.length > 0) {
-      conn.on('ReceiveMessage', function (newmsg) {
+    conn.on('ReceiveMessage', function (newmsg) {
+      (async () => {
         setmessages([...messages, newmsg]);
-        document
-          .getElementsByTagName('main')[0]
-          .scrollTo(0, document.getElementsByTagName('main')[0].scrollHeight);
-      });
-    }
+      })().then(() => {});
+    });
+  }, [conn, messages]);
+  useEffect(() => {
+    document
+      .getElementById('messages')
+      .scrollTo(0, document.getElementById('messages').scrollHeight);
   }, [messages]);
   function sendChatMessage(inputmessage) {
     conn.invoke('SendMessage', props.id.toString(), inputmessage);
@@ -67,7 +69,13 @@ function MessageList(props) {
         members
       </button>
       <p>you are in chat room {props.id}</p>
-      <div id="messages">
+      <div
+        id="messages"
+        style={{
+          height: '90%',
+          overflowY: 'auto',
+        }}
+      >
         {messages.map((ele) => {
           return (
             <MessageUnit

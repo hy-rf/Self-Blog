@@ -9,7 +9,12 @@ function Chat() {
   if (isLogin()) {
     return (
       <>
-        <div className="chatpage">
+        <div
+          className="chatpage"
+          style={{
+            height: '100%',
+          }}
+        >
           {chatlocation[0] === 'roomlist' && (
             <Roomlist setchatlocation={setchatlocation}></Roomlist>
           )}

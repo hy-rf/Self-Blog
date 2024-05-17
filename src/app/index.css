@@ -52,7 +52,7 @@ header {
 }
 main {
   grid-area: main;
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: hidden;
   padding: 10px;
   background-color: rgba(128, 128, 128, 0.2);
