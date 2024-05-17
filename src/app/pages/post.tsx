@@ -1,4 +1,4 @@
-import PostDetail from '@/app/components/post/PostDetail.tsx';
+import PostDetail from '@/app/components/post/PostDetail';
 import PostEditor from '@/app/components/post/posteditor';
 import isLogin from '@/app/utility/islogin';
 import { useState } from 'react';
