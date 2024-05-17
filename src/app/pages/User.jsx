@@ -28,7 +28,7 @@ function User() {
             onClick={() => {
               localStorage.removeItem('Token');
               console.info('log out');
-              document.location.reload();
+              document.location.href = '/';
             }}
           >
             logout

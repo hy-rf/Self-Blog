@@ -1,6 +1,7 @@
 import { api } from '@/app/api/index';
 import { Button, TextField } from '@mui/material';
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 // import { redirect } from 'react-router-dom';
 function Login() {
   const [name, setName] = useState('');
@@ -16,7 +17,7 @@ function Login() {
       setPwdProps({});
       setloggingin(false);
       localStorage.setItem('Token', result.payload);
-      document.location.reload();
+      return (document.location.href = '/');
     } else {
       setNameProps({ error: true, helperText: result.message });
       setPwdProps({ error: true, helperText: result.message });
@@ -33,6 +34,7 @@ function Login() {
           id="Name"
           name="Name"
           onChange={(e) => setName(e.target.value)}
+          value={name}
           {...nameProps}
           required
         />
@@ -44,6 +46,7 @@ function Login() {
           name="Pwd"
           type="password"
           onChange={(e) => setPwd(e.target.value)}
+          value={pwd}
           {...pwdProps}
           required
         />

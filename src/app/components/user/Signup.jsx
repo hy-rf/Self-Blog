@@ -19,7 +19,7 @@ function Signup() {
         registerFormInfo.Pwd
       );
       localStorage.setItem('Token', result.payload);
-      document.location.reload();
+      return (document.location.href = '/');
     }
   }
   async function checkName(Name) {

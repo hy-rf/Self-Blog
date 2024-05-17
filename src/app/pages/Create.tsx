@@ -1,9 +1,9 @@
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Navigate, Route, Routes } from 'react-router-dom';
 import { Button, ButtonGroup } from '@mui/material';
 import isLogin from '../utility/islogin';
 function Create() {
   if (!isLogin()) {
-    return document.location.assign('/user');
+    return <Navigate to="/user" />;
   }
   return (
     <>
