@@ -20,7 +20,7 @@ function User() {
   }, []);
   console.log('rendered');
   return (
-    <div>
+    <>
       {isLogin() ? (
         <UserInfo>
           <p>{userName}</p>user
@@ -37,7 +37,7 @@ function User() {
       ) : (
         <Welcome></Welcome>
       )}
-    </div>
+    </>
   );
 }
 

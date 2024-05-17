@@ -2,12 +2,12 @@ import { useState } from 'react';
 import Login from './Login';
 import Signup from './Signup';
 import './welcome.css';
-import { ToggleButton, ToggleButtonGroup } from '@mui/material';
+import { Card, ToggleButton, ToggleButtonGroup } from '@mui/material';
 function Welcome() {
   var [panel, setpanel] = useState('login');
   return (
     <>
-      <div id="welcomeWrapper">
+      <Card id="welcomeWrapper">
         <ToggleButtonGroup id="toggleBtns">
           <ToggleButton onClick={() => setpanel('login')} aria-label="Platform">
             Login
@@ -23,7 +23,7 @@ function Welcome() {
           {panel === 'login' && <Login></Login>}
           {panel === 'signup' && <Signup></Signup>}
         </div>
-      </div>
+      </Card>
     </>
   );
 }
