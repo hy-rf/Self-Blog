@@ -1,7 +1,8 @@
-import { useParams } from 'react-router-dom';
+import { Routes, Route, useParams } from 'react-router-dom';
 import { type PostDetailViewModel } from '@/app/types/PostDetailViewModel';
 import { useState } from 'react';
 import { api } from '@/app/api';
+import { Link } from 'react-router-dom';
 function PostDetail() {
   const { id } = useParams();
   let emptyPost: PostDetailViewModel = {
@@ -25,6 +26,7 @@ function PostDetail() {
   });
   return (
     <>
+      <Link to="/post">back</Link>
       <h5>{post.title}</h5>
       <p>{post.content}</p>
       <p>Created: {post.created}</p>

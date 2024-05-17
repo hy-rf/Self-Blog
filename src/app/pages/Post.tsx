@@ -9,12 +9,12 @@ function Post() {
 
   return (
     <>
+      {isLogin() && (
+        <button onClick={() => setIsEditorOpen(!isEditorOpen)}>
+          Add New Post
+        </button>
+      )}
       <Routes>
-        {isLogin() && (
-          <button onClick={() => setIsEditorOpen(!isEditorOpen)}>
-            Add New Post
-          </button>
-        )}
         <Route path="post/:id" element={<PostDetail />} />
         {isEditorOpen && <PostEditor></PostEditor>}
         <Route path="" element={<PostList />} />
