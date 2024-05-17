@@ -1,4 +1,4 @@
-import { Routes, Route, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { type PostDetailViewModel } from '@/app/types/PostDetailViewModel';
 import { useState } from 'react';
 import { api } from '@/app/api';
