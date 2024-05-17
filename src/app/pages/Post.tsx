@@ -4,18 +4,15 @@ import isLogin from '@/app/utility/islogin';
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import PostList from '../components/post/PostList';
+import { Link } from 'react-router-dom';
 function Post() {
   const [isEditorOpen, setIsEditorOpen] = useState(false);
 
   return (
     <>
-      {isLogin() && (
-        <button onClick={() => setIsEditorOpen(!isEditorOpen)}>
-          Add New Post
-        </button>
-      )}
+      <Link to={'/create/post'}>New Post</Link>
       <Routes>
-        <Route path="post/:id" element={<PostDetail />} />
+        <Route path="/post/:id" element={<PostDetail />} />
         {isEditorOpen && <PostEditor></PostEditor>}
         <Route path="" element={<PostList />} />
       </Routes>

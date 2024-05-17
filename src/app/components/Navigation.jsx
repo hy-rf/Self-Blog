@@ -6,8 +6,8 @@ function Navigation() {
       <Link to={'/'}>
         <svg
           fill="#000000"
-          height="64px"
-          width="64px"
+          height="32px"
+          width="32px"
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -28,8 +28,8 @@ function Navigation() {
       <Link to={'/post'}>
         <svg
           fill="#000000"
-          height="64px"
-          width="64px"
+          height="32px"
+          width="32px"
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -47,10 +47,10 @@ function Navigation() {
           </g>
         </svg>
       </Link>
-      <div>
+      <Link to={'/create'}>
         <svg
-          width="64px"
-          height="64px"
+          width="32px"
+          height="32px"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
           fill="#000000"
@@ -65,12 +65,12 @@ function Navigation() {
             ></path>
           </g>
         </svg>
-      </div>
+      </Link>
       <Link to={'/chat'}>
         <svg
           fill="#000000"
-          height="64px"
-          width="64px"
+          height="32px"
+          width="32px"
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -97,8 +97,8 @@ function Navigation() {
       <Link to={'/user'}>
         <svg
           fill="#000000"
-          height="64px"
-          width="64px"
+          height="32px"
+          width="32px"
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
