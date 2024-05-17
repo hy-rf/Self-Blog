@@ -1,5 +1,5 @@
-import PostDetail from '@/app/components/post/postdetail';
-import PostEditor from '@/app/components/post/posteditor';
+import PostDetail from '@/app/components/post/PostDetail';
+import PostEditor from '@/app/components/post/PostEditor';
 import isLogin from '@/app/utility/islogin';
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';

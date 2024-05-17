@@ -3,21 +3,10 @@
 import User from './pages/user';
 import Chat from './pages/chat';
 import Post from './pages/Post';
-import Header from './components/header';
-import Navigation from './components/navigation';
+import Header from './components/Header';
+import Navigation from './components/Navigation';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
-  // function handleClickToCloseUserMenu(e) {
-  //   if (e.target.id != 'Avatar') {
-  //     document.getElementById('root').classList.remove('move-nav');
-  //     e.stopPropagation();
-  //   }
-  // }
-  // useEffect(() => {
-  //   document
-  //     .getElementById('root')
-  //     .addEventListener('click', handleClickToCloseUserMenu);
-  // }, []);
   return (
     <>
       <BrowserRouter>

@@ -1,5 +1,5 @@
 import { Card, Divider } from '@mui/material';
-import './postunit.css';
+import './PostUnit.css';
 import { type PostListViewModel } from '@/app/types/PostListViewModel';
 import { Tag } from '@/app/types/Tag';
 import { Link } from 'react-router-dom';

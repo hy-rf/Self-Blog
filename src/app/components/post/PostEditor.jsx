@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Proptypes from 'prop-types';
-import style from './posteditor.module.css';
+import style from './PostEditor.module.css';
 function PostEditor({
   mode = 'create',
   currentPost = {},
