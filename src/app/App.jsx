@@ -29,10 +29,10 @@ function App() {
         </nav>
         <main>
           <Routes>
-            <Route path="/" element={<Post />}></Route>
-            <Route path="/user" element={<User />}></Route>
-            <Route path="/post" element={<Post />}></Route>
-            <Route path="/chat" element={<Chat />}></Route>
+            <Route path="*" element={<Post />}></Route>
+            <Route path="user" element={<User />}></Route>
+            <Route path="post" element={<Post />}></Route>
+            <Route path="chat" element={<Chat />}></Route>
           </Routes>
         </main>
         {/* <div>
