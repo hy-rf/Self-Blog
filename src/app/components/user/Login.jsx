@@ -1,22 +1,26 @@
 import { api } from '@/app/api/index';
 import { Button, TextField } from '@mui/material';
 import { useState } from 'react';
-import { redirect } from 'react-router-dom';
+// import { redirect } from 'react-router-dom';
 function Login() {
-  const [name, setname] = useState('');
-  const [pwd, setpwd] = useState('');
+  const [name, setName] = useState('');
+  const [pwd, setPwd] = useState('');
   const [loggingin, setloggingin] = useState(false);
+  const [nameProps, setNameProps] = useState({});
+  const [pwdProps, setPwdProps] = useState({});
   async function handlelogin() {
     setloggingin(true);
     const result = await api.login(name, pwd);
     if (result.success) {
+      setNameProps({});
+      setPwdProps({});
       setloggingin(false);
-      // document.cookie = `Token=${result.payload}`;
       localStorage.setItem('Token', result.payload);
-      redirect('/');
-      // document.location.reload();
+      document.location.reload();
     } else {
-      alert(result.message);
+      setNameProps({ error: true, helperText: result.message });
+      setPwdProps({ error: true, helperText: result.message });
+      setloggingin(false);
     }
   }
   return (
@@ -28,7 +32,8 @@ function Login() {
           margin="dense"
           id="Name"
           name="Name"
-          onChange={(e) => setname(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
+          {...nameProps}
           required
         />
         <TextField
@@ -38,7 +43,8 @@ function Login() {
           id="Pwd"
           name="Pwd"
           type="password"
-          onChange={(e) => setpwd(e.target.value)}
+          onChange={(e) => setPwd(e.target.value)}
+          {...pwdProps}
           required
         />
         <p>{loggingin ? <span>logging in</span> : ''}</p>

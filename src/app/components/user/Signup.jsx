@@ -13,7 +13,14 @@ function Signup() {
   const [rePwdProps, setRePwdProps] = useState({});
   async function submitRegister() {
     let res = await api.register(registerFormInfo);
-    console.log(res);
+    if (res.success) {
+      const result = await api.login(
+        registerFormInfo.Name,
+        registerFormInfo.Pwd
+      );
+      localStorage.setItem('Token', result.payload);
+      document.location.reload();
+    }
   }
   async function checkName(Name) {
     let res = await api.checkDuplicatedName(Name);

@@ -1,7 +1,7 @@
 // import { useState } from 'react';
 
-import User from './pages/user';
-import Chat from './pages/chat';
+import User from './pages/User';
+import Chat from './pages/Chat';
 import Post from './pages/Post';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
