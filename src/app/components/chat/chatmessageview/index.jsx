@@ -36,8 +36,8 @@ function MessageList(props) {
       conn.on('ReceiveMessage', function (newmsg) {
         setmessages([...messages, newmsg]);
         document
-          .getElementById('messages')
-          .lastElementChild.lastElementChild.scrollIntoView();
+          .getElementsByTagName('main')[0]
+          .scrollTo(0, document.getElementsByTagName('main')[0].scrollHeight);
       });
     }
   }, [messages]);
