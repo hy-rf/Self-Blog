@@ -8,9 +8,13 @@ const url = {
 };
 const BASE_URL = url.baseurl;
 const api = {
-  baseurl: new RegExp('https://hy-rf.github.io*').test(window.location.href)
-    ? 'https://1stbbs.azurewebsites.net'
-    : 'https://localhost:7064',
+  baseurl:
+    new RegExp('https://hy-rf.github.io*').test(window.location.href) ||
+    new RegExp(
+      'https://victorious-cliff-0fe836900.5.azurestaticapps.net*'
+    ).test(window.location.href)
+      ? 'https://1stbbs.azurewebsites.net'
+      : 'https://localhost:7064',
   async login(name: number, pwd: number) {
     const res = await axios({
       method: 'post',
