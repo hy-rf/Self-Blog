@@ -19,11 +19,12 @@ export default createStore({
   state() {
     return {
       products: products,
+      cart: [],
     };
   },
   mutations: {
     add(product: any, state: any) {
-      state.products.push({ ...product, id: state.products.length + 1 });
+      state.products.push({ product, id: state.products.length + 1 });
     },
     update(product: any, state: any) {
       let index = state.products.findIndex((p: any) => p.id == product.id);

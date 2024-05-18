@@ -19,6 +19,16 @@ const routes = [
     path: '/product',
     name: 'Product',
     component: () => import('../views/Product.vue'),
+    children: [
+      {
+        path: 'cart',
+        component: () => import('../components/Cart.vue'),
+      },
+      {
+        path: 'list',
+        component: () => import('../components/ProductList.vue'),
+      },
+    ],
   },
 ];
 export const router = createRouter({

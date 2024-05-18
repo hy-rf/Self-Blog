@@ -47,6 +47,7 @@ function Navigation() {
           </g>
         </svg>
       </Link>
+      <a href="/admin.html">admin</a>
       <Link to={'/create'}>
         <svg
           width="32px"
