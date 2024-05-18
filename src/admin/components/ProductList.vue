@@ -15,8 +15,8 @@ function handleAddCart(productId: number) {
     } else {
         store.state.cart.push({ ...store.state.products[productId - 1], number: numbers.value })
     }
-    console.log(store.state.cart);
-    console.log(store.state.products);
+    console.dir(store.state.cart);
+    console.dir(store.state.products);
 
 }
 function handleChangeNumber(e: any) {
