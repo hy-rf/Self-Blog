@@ -1,10 +1,8 @@
 function Header() {
   return (
-    <>
-      <div>
-        <p>Example Header</p>
-      </div>
-    </>
+    <header>
+      <p>Example Header</p>
+    </header>
   );
 }
 

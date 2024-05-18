@@ -2,7 +2,7 @@ import './Navigation.css';
 import { Link } from 'react-router-dom';
 function Navigation() {
   return (
-    <>
+    <nav>
       <Link to={'/'}>
         <svg
           fill="#000000"
@@ -120,7 +120,7 @@ function Navigation() {
           </g>
         </svg>
       </Link>
-    </>
+    </nav>
   );
 }
 export default Navigation;

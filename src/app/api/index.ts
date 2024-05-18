@@ -114,28 +114,6 @@ const api = {
     });
     return res.data.payload;
   },
-  mockPostApi: [
-    {
-      id: 1,
-      title: 'title1',
-      content: 'content1',
-      created: '2021-01-01',
-      modified: '2021-01-02',
-      userId: 1,
-      userName: 'user1',
-      tags: ['tag1', 'tag2'],
-    },
-    {
-      id: 2,
-      title: 'title2',
-      content: 'content2',
-      created: '2021-01-11',
-      modified: '2021-01-12',
-      userId: 2,
-      userName: 'user2',
-      tags: ['tag1', 'tag2', 'tag3'],
-    },
-  ],
   async checkDuplicatedName(name: string) {
     const res = await axios({
       method: 'post',

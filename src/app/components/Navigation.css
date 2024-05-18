@@ -13,6 +13,5 @@ nav > *:hover {
   transition: 0.3s;
 }
 nav > *:not(:hover) {
-  /* background-color: #f0f0f0; */
   transition: 0.3s;
 }
