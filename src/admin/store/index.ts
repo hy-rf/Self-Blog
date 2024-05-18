@@ -1,9 +1,4 @@
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  number: number;
-}
+import type Product from '@/admin/types/Product';
 import { createStore } from 'vuex';
 let products: Product[] = [];
 for (let i = 1; i <= 45; i++) {
@@ -12,6 +7,11 @@ for (let i = 1; i <= 45; i++) {
     name: `Product ${i}`,
     price: Math.floor(Math.random() * 100) + 1,
     number: Math.floor(Math.random() * 99) + 1,
+    category: {
+      id: Math.floor(Math.random() * 5) + 1,
+      name: `Category ${Math.floor(Math.random() * 5) + 1}`,
+      description: `Description ${Math.floor(Math.random() * 5) + 1}`,
+    },
   };
   products.push(product);
 }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import * as echarts from 'echarts'
+import { init, setOption } from 'echarts'
 setTimeout(() => {
     var siteHits = echarts.init(document.getElementById('data-out'))
     siteHits.setOption({
