@@ -26,7 +26,8 @@
     "react-router-dom": "^6.23.1",
     "typescript-plugin-css-modules": "^5.1.0",
     "vue": "^3.4.27",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.2",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.12.12",

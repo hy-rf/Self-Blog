@@ -15,6 +15,11 @@ const routes = [
     name: 'Employee',
     component: () => import('../views/Employee.vue'),
   },
+  {
+    path: '/product',
+    name: 'Product',
+    component: () => import('../views/Product.vue'),
+  },
 ];
 export const router = createRouter({
   history: createWebHistory(),
