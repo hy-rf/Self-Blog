@@ -24,10 +24,7 @@
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
-    "typescript-plugin-css-modules": "^5.1.0",
-    "vue": "^3.4.27",
-    "vue-router": "^4.3.2",
-    "vuex": "^4.1.0"
+    "typescript-plugin-css-modules": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.12.12",
@@ -36,7 +33,6 @@
     "@typescript-eslint/eslint-plugin": "^7.9.0",
     "@typescript-eslint/parser": "^7.9.0",
     "@vitejs/plugin-react": "^4.2.1",
-    "@vitejs/plugin-vue": "^5.0.4",
     "@vue/tsconfig": "^0.5.1",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.1",
@@ -44,7 +40,6 @@
     "eslint-plugin-react-refresh": "^0.4.6",
     "sass": "^1.77.2",
     "typescript": "^5.4.5",
-    "vite": "^5.2.0",
-    "vue-tsc": "^2.0.17"
+    "vite": "^5.2.0"
   }
 }
