@@ -1,8 +1,17 @@
 import './Navigation.css';
 import { Link } from 'react-router-dom';
+// import { isMobile } from 'react-device-detect';
 function Navigation() {
   return (
-    <nav>
+    <nav
+      style={{
+        gridArea: 'nav',
+        background:
+          'linear-gradient(rgba(128, 128, 128, 0.4),rgba(128, 128, 128, 0.2))',
+        padding: '5px',
+        borderRight: '1px solid grey',
+      }}
+    >
       <Link to={'/'}>
         <svg
           fill="#000000"

@@ -1,6 +1,10 @@
 function Header() {
   return (
-    <header>
+    <header
+      style={{
+        gridArea: 'header',
+      }}
+    >
       <p>Example Header</p>
     </header>
   );
