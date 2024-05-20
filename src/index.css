@@ -31,14 +31,4 @@ header {
   header {
     display: none;
   }
-  nav svg {
-    width: 30px;
-    height: 30px;
-  }
-  nav > * {
-    width: auto;
-  }
-  nav > a:nth-child(3) {
-    margin-left: auto;
-  }
 }

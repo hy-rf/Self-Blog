@@ -1,17 +1,39 @@
 import './Navigation.css';
 import { Link } from 'react-router-dom';
-// import { isMobile } from 'react-device-detect';
+import { isMobile } from 'react-device-detect';
+import styled from 'styled-components';
+const NavStyle = isMobile
+  ? styled.nav`
+      grid-area: nav;
+      background: linear-gradient(
+        rgba(128, 128, 128, 0.4),
+        rgba(128, 128, 128, 0.2)
+      );
+      padding: 5px;
+      border-right: 1px solid grey;
+    `
+  : styled.nav`
+      grid-area: nav;
+      background: linear-gradient(
+        rgba(128, 128, 128, 0.4),
+        rgba(128, 128, 128, 0.2)
+      );
+      padding: 5px;
+      border-right: 1px solid grey;
+      & svg {
+        width: 30px;
+        height: 30px;
+      }
+      & > * {
+        width: auto;
+      }
+      & > a:nth-child(3) {
+        margin-left: auto;
+      }
+    `;
 function Navigation() {
   return (
-    <nav
-      style={{
-        gridArea: 'nav',
-        background:
-          'linear-gradient(rgba(128, 128, 128, 0.4),rgba(128, 128, 128, 0.2))',
-        padding: '5px',
-        borderRight: '1px solid grey',
-      }}
-    >
+    <NavStyle>
       <Link to={'/'}>
         <svg
           fill="#000000"
@@ -129,7 +151,7 @@ function Navigation() {
           </g>
         </svg>
       </Link>
-    </nav>
+    </NavStyle>
   );
 }
 export default Navigation;
