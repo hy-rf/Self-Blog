@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { PostListViewModel } from '../types/PostListViewModel';
 import { PostDetailViewModel } from '../types/PostDetailViewModel';
+import CreatePostViewModel from '@/types/CreatePostViewModel';
 const url = {
   baseurl:
     new RegExp('https://hy-rf.github.io*').test(window.location.href) ||
@@ -152,6 +153,19 @@ const api = {
       },
     });
     return res.data.payload;
+  },
+  async createPost(newPost: CreatePostViewModel) {
+    const res = await axios({
+      method: 'post',
+      url: `${BASE_URL}/post`,
+      data: newPost,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `${localStorage.getItem('Token')}`,
+      },
+    });
+    return res.data;
   },
 };
 

@@ -1,6 +1,6 @@
 import type CreateTagViewModel from './CreateTagViewModel';
 export default interface CreatePostViewModel {
-  title: string;
-  content: string;
+  Title: string;
+  Content: string;
   NewTags: CreateTagViewModel[];
 }
