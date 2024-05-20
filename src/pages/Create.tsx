@@ -3,9 +3,9 @@ import { Button, ButtonGroup } from '@mui/material';
 import isLogin from '../utility/islogin';
 import CreatePost from '@/components/create/CreatePost';
 function Create() {
-  // if (!isLogin()) {
-  //   return <Navigate to="/user" />;
-  // }
+  if (!isLogin()) {
+    return <Navigate to="/user" />;
+  }
   return (
     <>
       <div
