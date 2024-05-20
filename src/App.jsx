@@ -35,6 +35,7 @@ function App() {
             overflow: 'hidden',
             padding: '10px',
             backgroundColor: 'rgba(128, 128, 128, 0.2)',
+            overflowY: 'auto',
           }}
         >
           {!isMobile && (
