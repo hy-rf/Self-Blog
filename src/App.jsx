@@ -1,13 +1,13 @@
 // import { useState } from 'react';
-
-import Home from './pages/Home';
-import User from './pages/User';
-import Chat from './pages/Chat';
-import Post from './pages/Post';
+import { lazy, Suspense } from 'react';
+const Home = lazy(() => import('./pages/Home'));
+const User = lazy(() => import('./pages/User'));
+const Chat = lazy(() => import('./pages/Chat'));
+const Post = lazy(() => import('./pages/Post'));
+const Create = lazy(() => import('./pages/Create'));
 import Header from './components/Header';
 import Navigation from './components/Navigation';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Create from './pages/Create';
 import { isMobile } from 'react-device-detect';
 let desktopLayout = {
   display: 'grid',
@@ -39,11 +39,46 @@ function App() {
           }}
         >
           <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/user/*" element={<User />}></Route>
-            <Route path="/post/*" element={<Post />}></Route>
-            <Route path="/chat" element={<Chat />}></Route>
-            <Route path="/create/*" element={<Create />}></Route>
+            <Route
+              path="/"
+              element={
+                <Suspense fallback={<div>loading</div>}>
+                  <Home />
+                </Suspense>
+              }
+            ></Route>
+            <Route
+              path="/user/*"
+              element={
+                <Suspense fallback={<div>loading</div>}>
+                  <User />
+                </Suspense>
+              }
+            ></Route>
+            <Route
+              path="/post/*"
+              element={
+                <Suspense fallback={<div>loading</div>}>
+                  <Post />
+                </Suspense>
+              }
+            ></Route>
+            <Route
+              path="/chat"
+              element={
+                <Suspense fallback={<div>loading</div>}>
+                  <Chat />
+                </Suspense>
+              }
+            ></Route>
+            <Route
+              path="/create/*"
+              element={
+                <Suspense fallback={<div>loading</div>}>
+                  <Create />
+                </Suspense>
+              }
+            ></Route>
           </Routes>
         </main>
       </BrowserRouter>
