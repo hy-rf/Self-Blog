@@ -38,15 +38,6 @@ function App() {
             overflowY: 'auto',
           }}
         >
-          {!isMobile && (
-            <h1
-              style={{
-                fontSize: '5rem',
-              }}
-            >
-              FIXING DESKTOP SITE
-            </h1>
-          )}
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/user/*" element={<User />}></Route>
