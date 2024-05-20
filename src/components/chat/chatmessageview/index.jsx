@@ -1,4 +1,4 @@
-import { api } from '@/api';
+import { api, BASE_URL } from '@/api';
 import Proptypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { HubConnectionBuilder } from '@microsoft/signalr';
@@ -7,7 +7,7 @@ import './index.module.css';
 function createHubConnection(roomid) {
   'use strict';
   var connection = new HubConnectionBuilder()
-    .withUrl(`${api.baseurl}/chat`, {
+    .withUrl(`${BASE_URL}/chat`, {
       accessTokenFactory: () => {
         return localStorage.getItem('Token');
       },

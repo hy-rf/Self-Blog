@@ -13,17 +13,10 @@ const url = {
 };
 const BASE_URL = url.baseurl;
 const api = {
-  baseurl:
-    new RegExp('https://hy-rf.github.io*').test(window.location.href) ||
-    new RegExp(
-      'https://victorious-cliff-0fe836900.5.azurestaticapps.net*'
-    ).test(window.location.href)
-      ? 'https://1stbbs.azurewebsites.net'
-      : 'https://localhost:7064',
   async login(name: number, pwd: number) {
     const res = await axios({
       method: 'post',
-      url: `${url.baseurl}/User/Login`,
+      url: `${BASE_URL}/User/Login`,
       data: {
         Name: name,
         Pwd: pwd,
@@ -39,7 +32,7 @@ const api = {
   async register(registerFormInfo: any) {
     const res = await axios({
       method: 'post',
-      url: `${url.baseurl}/User/Signup`,
+      url: `${BASE_URL}/User/Signup`,
       data: registerFormInfo,
       headers: {
         Accept: 'application/json',
@@ -52,7 +45,7 @@ const api = {
   async getself() {
     const res = await axios({
       method: 'get',
-      url: `${url.baseurl}/User`,
+      url: `${BASE_URL}/User`,
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -65,7 +58,7 @@ const api = {
   async getuser(id: number) {
     const res = await axios({
       method: 'get',
-      url: `${url.baseurl}/User/${id}`,
+      url: `${BASE_URL}/User/${id}`,
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -78,7 +71,7 @@ const api = {
   async getJoinedChatroom() {
     const res = await axios({
       method: 'post',
-      url: `${url.baseurl}/GetJoinedChatRoom`,
+      url: `${BASE_URL}/GetJoinedChatRoom`,
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -91,7 +84,7 @@ const api = {
   async getChatroomMember(ChatRoomId: number) {
     const res = await axios({
       method: 'get',
-      url: `${url.baseurl}/ChatRoomMember/${ChatRoomId}`,
+      url: `${BASE_URL}/ChatRoomMember/${ChatRoomId}`,
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -103,7 +96,7 @@ const api = {
   async getChatroomMessage(ChatroomId: number) {
     const res = await axios({
       method: 'post',
-      url: `${url.baseurl}/GetChatRoomMessages`,
+      url: `${BASE_URL}/GetChatRoomMessages`,
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -118,7 +111,7 @@ const api = {
   async checkDuplicatedName(name: string) {
     const res = await axios({
       method: 'post',
-      url: `${url.baseurl}/User/CheckDuplicatedName`,
+      url: `${BASE_URL}/User/CheckDuplicatedName`,
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -132,7 +125,7 @@ const api = {
   async getPosts(): Promise<PostListViewModel[]> {
     const res = await axios({
       method: 'get',
-      url: `${url.baseurl}/post`,
+      url: `${BASE_URL}/post`,
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -143,7 +136,7 @@ const api = {
   async getPostDetail(id: number): Promise<PostDetailViewModel> {
     const res = await axios({
       method: 'get',
-      url: `${url.baseurl}/post/detail`,
+      url: `${BASE_URL}/post/detail`,
       params: {
         id: id,
       },
@@ -158,6 +151,22 @@ const api = {
     const res = await axios({
       method: 'post',
       url: `${BASE_URL}/post`,
+      data: newPost,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `${localStorage.getItem('Token')}`,
+      },
+    });
+    return res.data;
+  },
+  async editPost(id: number, newPost: CreatePostViewModel) {
+    const res = await axios({
+      method: 'put',
+      url: `${BASE_URL}/post`,
+      params: {
+        id: id,
+      },
       data: newPost,
       headers: {
         Accept: 'application/json',
