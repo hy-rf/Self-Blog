@@ -9,7 +9,9 @@ const url = {
       'https://victorious-cliff-0fe836900.5.azurestaticapps.net*'
     ).test(window.location.href)
       ? 'https://1stbbs.azurewebsites.net'
-      : (await isLocalDeveloping())
+      : (async () => {
+          return await isLocalDeveloping();
+        })
       ? 'https://localhost:7064'
       : 'https://1stbbs.azurewebsites.net',
 };
