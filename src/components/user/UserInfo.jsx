@@ -52,7 +52,7 @@ function UserInfo() {
     getUser().then((ret) => setUser(ret));
   }, []);
   const [user, setUser] = useState(null);
-  return (
+  return user != null ? (
     <UserInfoLayout>
       <Card>
         <CardContent>
@@ -65,7 +65,7 @@ function UserInfo() {
                 title="green iguana"
               />
             </Card>
-            <Card>{user != null ? user.name : ''}</Card>
+            <Card>{user.name}</Card>
             <Card>
               <CardMedia
                 style={{
@@ -95,18 +95,14 @@ function UserInfo() {
           <ThemeProvider theme={innerCards}>
             <CardHeader title="Actions"></CardHeader>
             <Card>
-              {user != null ? (
-                user.posts.map((ele, index) => {
-                  return (
-                    <div key={index}>
-                      <Link to={`/post/${ele.id}`}>{ele.title}</Link>
-                      <p>{ele.created}</p>
-                    </div>
-                  );
-                })
-              ) : (
-                <p>loading</p>
-              )}
+              {user.posts.map((ele, index) => {
+                return (
+                  <div key={index}>
+                    <Link to={`/post/${ele.id}`}>{ele.title}</Link>
+                    <p>{ele.created}</p>
+                  </div>
+                );
+              })}
             </Card>
             <Card>replies</Card>
           </ThemeProvider>
@@ -124,6 +120,8 @@ function UserInfo() {
         </button>
       </template>
     </UserInfoLayout>
+  ) : (
+    <p>loading</p>
   );
 }
 export default UserInfo;
