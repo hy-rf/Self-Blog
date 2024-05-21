@@ -1,58 +1,32 @@
 import { Link } from 'react-router-dom';
-import { isIOS, isMobile } from 'react-device-detect';
+import { isMobile } from 'react-device-detect';
 import styled from 'styled-components';
 const NavStyle = isMobile
-  ? isIOS
-    ? styled.nav`
+  ? styled.nav`
+      display: flex;
+      flex-direction: row;
+      grid-area: nav;
+      background: linear-gradient(
+        rgba(128, 128, 128, 0.4),
+        rgba(128, 128, 128, 0.2)
+      );
+      padding: 5px;
+      border-right: 1px solid grey;
+      bottom: 0dvh;
+      & > * {
+        width: 20%;
         display: flex;
-        flex-direction: row;
-        grid-area: nav;
-        background: linear-gradient(
-          rgba(128, 128, 128, 0.4),
-          rgba(128, 128, 128, 0.2)
-        );
-        padding: 5px;
-        border-right: 1px solid grey;
-        top: -5rem;
-        & > * {
-          width: 20%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        & > *:hover {
-          background-color: #f0f0f0;
-          transition: 0.3s;
-        }
-        & > *:not(:hover) {
-          transition: 0.3s;
-        }
-      `
-    : styled.nav`
-        display: flex;
-        flex-direction: row;
-        grid-area: nav;
-        background: linear-gradient(
-          rgba(128, 128, 128, 0.4),
-          rgba(128, 128, 128, 0.2)
-        );
-        z-index: 1;
-        padding: 5px;
-        border-right: 1px solid grey;
-        & > * {
-          width: 20%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        & > *:hover {
-          background-color: #f0f0f0;
-          transition: 0.3s;
-        }
-        & > *:not(:hover) {
-          transition: 0.3s;
-        }
-      `
+        justify-content: center;
+        align-items: center;
+      }
+      & > *:hover {
+        background-color: #f0f0f0;
+        transition: 0.3s;
+      }
+      & > *:not(:hover) {
+        transition: 0.3s;
+      }
+    `
   : styled.nav`
       display: flex;
       flex-direction: row;
