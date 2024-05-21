@@ -22,6 +22,7 @@ function PostDetail() {
   useState(() => {
     api.getPostDetail(Number(id)).then((res) => {
       setPost(res);
+      console.log(res);
     });
   });
   return (

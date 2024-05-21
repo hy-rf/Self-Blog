@@ -8,8 +8,9 @@ import {
 } from '@mui/material';
 import styled from 'styled-components';
 import { isMobile } from 'react-device-detect';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { api } from '@/api';
+import { Link } from 'react-router-dom';
 const UserInfoLayout = isMobile
   ? styled.div`
       display: flex;
@@ -42,11 +43,15 @@ const innerCards = createTheme({
     },
   },
 });
+async function getUser() {
+  let ret = await api.getself();
+  return ret;
+}
 function UserInfo() {
-  const [user, setUser] = useState(api.getself());
   useEffect(() => {
-    console.log(user);
-  }, [user]);
+    getUser().then((ret) => setUser(ret));
+  }, []);
+  const [user, setUser] = useState(null);
   return (
     <UserInfoLayout>
       <Card>
@@ -60,8 +65,19 @@ function UserInfo() {
                 title="green iguana"
               />
             </Card>
-            <Card>username:</Card>
-            <Card>email:</Card>
+            <Card>{user != null ? user.name : ''}</Card>
+            <Card>
+              <CardMedia
+                style={{
+                  borderRadius: '50%',
+                }}
+                sx={{
+                  height: 64,
+                  width: 64,
+                }}
+                image={`data:image/png;base64, ${user.avatar}`}
+              ></CardMedia>
+            </Card>
           </ThemeProvider>
         </CardContent>
       </Card>
@@ -69,8 +85,8 @@ function UserInfo() {
         <CardContent>
           <CardHeader title="Security"></CardHeader>
           <ThemeProvider theme={innerCards}>
-            <Card>password:</Card>
-            <Card>password:</Card>
+            <Card>test security</Card>
+            <Card>test security</Card>
           </ThemeProvider>
         </CardContent>
       </Card>
@@ -78,8 +94,21 @@ function UserInfo() {
         <CardContent>
           <ThemeProvider theme={innerCards}>
             <CardHeader title="Actions"></CardHeader>
-            <Card>password:</Card>
-            <Card>password:</Card>
+            <Card>
+              {user != null ? (
+                user.posts.map((ele, index) => {
+                  return (
+                    <div key={index}>
+                      <Link to={`/post/${ele.id}`}>{ele.title}</Link>
+                      <p>{ele.created}</p>
+                    </div>
+                  );
+                })
+              ) : (
+                <p>loading</p>
+              )}
+            </Card>
+            <Card>replies</Card>
           </ThemeProvider>
         </CardContent>
       </Card>

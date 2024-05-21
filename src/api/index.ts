@@ -53,7 +53,7 @@ const api = {
       },
       withCredentials: true,
     });
-    return res.data;
+    return res.data.payload;
   },
   async getuser(id: number) {
     const res = await axios({
