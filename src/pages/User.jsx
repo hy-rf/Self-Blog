@@ -18,7 +18,6 @@ function User() {
       });
     }
   }, []);
-  console.log('rendered');
   return (
     <>
       {isLogin() ? (

@@ -11,10 +11,8 @@ const NavStyle = isMobile
           rgba(128, 128, 128, 0.4),
           rgba(128, 128, 128, 0.2)
         );
-        z-index: 1;
         padding: 5px;
         border-right: 1px solid grey;
-        top: -5rem;
         & > * {
           width: 20%;
           display: flex;
