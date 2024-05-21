@@ -1,0 +1,17 @@
+#chatRoomMemberAvatars {
+  display: flex;
+  & > div {
+    position: relative;
+  }
+  & > div > img {
+    position: relative;
+    border-radius: 99%;
+    box-shadow: 1px 1px 1px grey;
+  }
+  & div:first-child {
+    left: 0;
+  }
+  & div:not(:first-child) {
+    left: -1%;
+  }
+}

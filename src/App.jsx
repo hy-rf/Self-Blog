@@ -1,35 +1,89 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+// import { useState } from 'react';
+import { lazy, Suspense } from 'react';
+const Home = lazy(() => import('./pages/Home'));
+const User = lazy(() => import('./pages/User'));
+const Chat = lazy(() => import('./pages/Chat'));
+const Post = lazy(() => import('./pages/Post'));
+const Create = lazy(() => import('./pages/Create'));
+import Header from './components/Header';
+import Navigation from './components/Navigation';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { isMobile } from 'react-device-detect';
+let desktopLayout = {
+  display: 'grid',
+  gridTemplateRows: '1fr 18fr',
+  gridTemplateAreas: "'nav' 'main'",
+  width: '100%',
+  height: '100vh',
+};
+let mobileLayout = {
+  display: 'grid',
+  gridTemplateRows: '1fr 14fr 1fr',
+  gridTemplateAreas: "'header' 'main' 'nav'",
+  width: '100%',
+  height: '100vh',
+};
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div style={isMobile ? mobileLayout : desktopLayout}>
+      <BrowserRouter>
+        {isMobile && <Header></Header>}
+        <Navigation></Navigation>
+        <main
+          style={{
+            gridArea: 'main',
+            overflow: 'hidden',
+            padding: '10px',
+            backgroundColor: 'rgba(128, 128, 128, 0.2)',
+            overflowY: 'auto',
+          }}
+        >
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Suspense fallback={<div>loading</div>}>
+                  <Home />
+                </Suspense>
+              }
+            ></Route>
+            <Route
+              path="/user/*"
+              element={
+                <Suspense fallback={<div>loading</div>}>
+                  <User />
+                </Suspense>
+              }
+            ></Route>
+            <Route
+              path="/post/*"
+              element={
+                <Suspense fallback={<div>loading</div>}>
+                  <Post />
+                </Suspense>
+              }
+            ></Route>
+            <Route
+              path="/chat"
+              element={
+                <Suspense fallback={<div>loading</div>}>
+                  <Chat />
+                </Suspense>
+              }
+            ></Route>
+            <Route
+              path="/create/*"
+              element={
+                <Suspense fallback={<div>loading</div>}>
+                  <Create />
+                </Suspense>
+              }
+            ></Route>
+          </Routes>
+        </main>
+      </BrowserRouter>
+    </div>
+  );
 }
 
-export default App
+export default App;
