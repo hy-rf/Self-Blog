@@ -15,7 +15,7 @@ const url = {
 };
 async function isLocalDeveloping(): Promise<Boolean> {
   try {
-    let res = await axios.get('https://localhost:7064');
+    await axios.get('https://localhost:7064');
     return true;
   } catch {
     return false;
@@ -188,4 +188,4 @@ const api = {
   },
 };
 
-export { api, BASE_URL, checkAvailableService };
+export { api, BASE_URL };
