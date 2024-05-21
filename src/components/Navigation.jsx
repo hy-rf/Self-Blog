@@ -13,6 +13,7 @@ const NavStyle = isMobile
         );
         padding: 5px;
         border-right: 1px solid grey;
+        top: -5rem;
         & > * {
           width: 20%;
           display: flex;
