@@ -32,7 +32,9 @@ function PostUnit({ post }: { post: PostListViewModel }) {
         <Button onClick={handleLikePost}>
           {true ? <FavoriteOutlinedIcon /> : <FavoriteBorderOutlinedIcon />}
         </Button>
-        <Button onClick={handleClickReport}>Report</Button>
+        <Button sx={{ marginLeft: 'auto' }} onClick={handleClickReport}>
+          Report
+        </Button>
       </CardActions>
     </Card>
   );
