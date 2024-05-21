@@ -27,7 +27,7 @@ function App() {
   return (
     <div style={isMobile ? mobileLayout : desktopLayout}>
       <BrowserRouter>
-        <Header></Header>
+        {isMobile && <Header></Header>}
         <Navigation></Navigation>
         <main
           style={{
